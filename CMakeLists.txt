@@ -173,8 +173,8 @@ target_include_directories(lvgl_linux PUBLIC
 # Link LVGL with external dependencies - Modern CMake/CMP0079 allows this
 target_link_libraries(lvgl PUBLIC ${PKG_CONFIG_LIB} m pthread)
 
-add_executable(lvglsim src/main.c ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC})
-target_link_libraries(lvglsim lvgl_linux lvgl)
+add_executable(machineconnect src/main.c ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC})
+target_link_libraries(machineconnect lvgl_linux lvgl)
 
 # Install the lvgl_linux library and its headers
 install(DIRECTORY src/lib/
@@ -187,4 +187,4 @@ install(TARGETS lvgl_linux
     ARCHIVE DESTINATION lib
 )
 
-add_custom_target(run COMMAND ${EXECUTABLE_OUTPUT_PATH}/lvglsim DEPENDS lvglsim)
+add_custom_target(run COMMAND ${EXECUTABLE_OUTPUT_PATH}/machineconnect DEPENDS machineconnect)

@@ -93,14 +93,14 @@ cmake --install ./build
 ## Run the demo application
 
 ```
-./build/bin/lvglsim
+./build/bin/machineconnect
 ```
 This will start the widgets demo
 
 If multiple backends are enabled you can run with a specific backend via the `-b` option
 
 ```
-./build/bin/lvglsim -b sdl
+./build/bin/machineconnect -b sdl
 ```
 
 To get a list of supported backends use the `-B` option
@@ -135,7 +135,7 @@ Check the documentation of the drivers for more details
 
 ## Permissions
 
-When using fbdev or DRM, run lvglsim with `sudo` or `su`,
+When using fbdev or DRM, run machineconnect with `sudo` or `su`,
 Usually, unpriviledged users don't have access to the framebuffer device `/dev/fb0`
 `sudo` or `su` must be used.
 
@@ -144,5 +144,5 @@ Access to the framebuffer device can be granted by adding the unpriviledged user
 ```
 sudo adduser $USER video
 newgrp video
-./build/bin/lvglsim
+./build/bin/machineconnect
 ```

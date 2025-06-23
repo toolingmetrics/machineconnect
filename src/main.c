@@ -60,7 +60,7 @@ static void print_lvgl_version(void)
  */
 static void print_usage(void)
 {
-    fprintf(stdout, "\nlvglsim [-V] [-B] [-b backend_name] [-W window_width] [-H window_height]\n\n");
+    fprintf(stdout, "\nmachineconnect [-V] [-B] [-b backend_name] [-W window_width] [-H window_height]\n\n");
     fprintf(stdout, "-V print LVGL version\n");
     fprintf(stdout, "-B list supported backends\n");
 }
