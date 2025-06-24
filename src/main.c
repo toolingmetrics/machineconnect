@@ -24,7 +24,7 @@
 #include <string.h>
 
 #include "lvgl/lvgl.h"
-#include "lvgl/demos/lv_demos.h"
+#include "src/views/ui.h"
 
 #include "src/lib/driver_backends.h"
 #include "src/lib/simulator_util.h"
@@ -82,8 +82,8 @@ static void configure_simulator(int argc, char **argv)
     const char *env_w = getenv("LV_SIM_WINDOW_WIDTH");
     const char *env_h = getenv("LV_SIM_WINDOW_HEIGHT");
     /* Default values */
-    settings.window_width = atoi(env_w ? env_w : "800");
-    settings.window_height = atoi(env_h ? env_h : "480");
+    settings.window_width = atoi(env_w ? env_w : "1280");
+    settings.window_height = atoi(env_h ? env_h : "720");
 
     /* Parse the command-line options. */
     while ((opt = getopt (argc, argv, "b:fmW:H:BVh")) != -1) {
@@ -149,9 +149,10 @@ int main(int argc, char **argv)
     }
 #endif
 
-    /*Create a Demo*/
-    lv_demo_widgets();
-    // lv_demo_widgets_start_slideshow();
+    // Initialize views UI
+    ui_init("");
+    lv_obj_t *screen = main_screen_create();
+    lv_scr_load(screen);
 
     /* Enter the run loop of the selected backend */
     driver_backends_run_loop();

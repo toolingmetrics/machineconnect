@@ -1,24 +1,15 @@
-# LVGL on top of Linux graphics stack
-
-This is an example project demonstrating how to use LVGL on
-a GNU/Linux systems and other Unix-like operating systems
-
-LVGL provides drivers for many graphics backends.
-Legacy framebuffer (fbdev), modern DRM/KMS, Wayland, X11, GLFW3 and SDL2.
-
-Check out this blog post for a step by step tutorial for fbdev
-https://blog.lvgl.io/2018-01-03/linux_fb
+# MachineConnect GUI Application
 
 ## Clone the project
 
 Clone the project
 
 ```
-git clone https://github.com/lvgl/lv_port_linux.git
-cd lv_port_linux/
+git clone https://github.com/toolingmetrics/machineconnect.git
+cd machineconnect/
 ```
 
-LVGL is a submodule of `lv_port_linux`, use the following command
+LVGL is a submodule of `machineconnect`, use the following command
 to fetch it, it will be downloaded to the `lvgl/` directory
 
 ```

@@ -156,28 +156,44 @@ if (CONFIG_LV_USE_OPENGLES)
 
 endif()
 
-file(GLOB LV_LINUX_SRC src/lib/*.c)
-set(LV_LINUX_INC src/lib)
+file(GLOB LV_LINUX_SRC
+    src/lib/*.c
+    src/views/*.c
+    src/views/components/*.c
+    src/views/screens/*.c
+    src/views/widgets/*.c
+)
+set(LV_LINUX_INC
+    src/lib
+    src/views
+)
+file(GLOB LV_FONT_SRC
+    src/views/fonts/Barlow_Regular_ttf_data.c
+    src/views/fonts/Barlow_Medium_ttf_data.c
+    src/views/fonts/Barlow_SemiBold_ttf_data.c
+    src/views/fonts/Barlow_Bold_ttf_data.c
+)
 
 target_include_directories(lvgl PUBLIC ${PKG_CONFIG_INC})
 
-add_library(lvgl_linux STATIC ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC})
+add_library(lvgl_linux STATIC ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC} ${LV_FONT_SRC})
 
 # If LVGL is configured to use LV_CONF_PATH or Kconfig
 # Set the exactly the same definitions on the lvgl_linux target
 set_target_properties(lvgl_linux PROPERTIES COMPILE_DEFINITIONS "${LVGL_COMPILER_DEFINES}")
 target_include_directories(lvgl_linux PUBLIC
     ${LV_LINUX_INC} ${CMAKE_CURRENT_SOURCE_DIR}
+    ${PROJECT_SOURCE_DIR}/src/views
     ${PROJECT_SOURCE_DIR}/src/lib ${LVGL_CONF_INC_DIR})
 
 # Link LVGL with external dependencies - Modern CMake/CMP0079 allows this
 target_link_libraries(lvgl PUBLIC ${PKG_CONFIG_LIB} m pthread)
 
-add_executable(machineconnect src/main.c ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC})
+add_executable(machineconnect src/main.c ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC} ${LV_FONT_SRC})
 target_link_libraries(machineconnect lvgl_linux lvgl)
 
 # Install the lvgl_linux library and its headers
-install(DIRECTORY src/lib/
+install(DIRECTORY src/lib/ src/views/
     DESTINATION include/lvgl
     FILES_MATCHING
     PATTERN "backends*" EXCLUDE

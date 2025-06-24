@@ -26,7 +26,7 @@
  *====================*/
 
 /** Color depth: 1 (I1), 8 (L8), 16 (RGB565), 24 (RGB888), 32 (XRGB8888) */
-#define LV_COLOR_DEPTH 16
+#define LV_COLOR_DEPTH 32
 
 /*=========================
    STDLIB WRAPPER SETTINGS
@@ -482,7 +482,7 @@
 #define LV_USE_OBJ_ID           0
 
 /**  Enable support widget names*/
-#define LV_USE_OBJ_NAME         0
+#define LV_USE_OBJ_NAME         1
 
 /** Automatically assign an ID when obj is created */
 #define LV_OBJ_ID_AUTO_ASSIGN   LV_USE_OBJ_ID
@@ -977,7 +977,7 @@
 #define LV_USE_VECTOR_GRAPHIC  1
 
 /** Enable ThorVG (vector graphics library) from the src/libs folder */
-#define LV_USE_THORVG_INTERNAL 1 
+#define LV_USE_THORVG_INTERNAL 1
 
 /** Enable ThorVG by assuming that its installed and linked to the project */
 #define LV_USE_THORVG_EXTERNAL 0
@@ -1327,10 +1327,10 @@
 *======================*/
 
 /** Enable examples to be built with the library. */
-#define LV_BUILD_EXAMPLES 1
+#define LV_BUILD_EXAMPLES 0
 
 /** Build the demos */
-#define LV_BUILD_DEMOS 1
+#define LV_BUILD_DEMOS 0
 
 /*===================
  * DEMO USAGE
@@ -1339,10 +1339,10 @@
 #if LV_BUILD_DEMOS
     /** Show some widgets. This might be required to increase `LV_MEM_SIZE`. */
     #define LV_USE_DEMO_WIDGETS 1
-    
+
     /** Demonstrate usage of encoder and keyboard. */
     #define LV_USE_DEMO_KEYPAD_AND_ENCODER 1
-    
+
     /** Benchmark your system */
     #define LV_USE_DEMO_BENCHMARK 1
 
@@ -1354,10 +1354,10 @@
     /** Render test for each primitive.
      *  - Requires at least 480x272 display. */
     #define LV_USE_DEMO_RENDER 1
-    
+
     /** Stress test for LVGL */
     #define LV_USE_DEMO_STRESS 1
-    
+
     /** Music player demo */
     #define LV_USE_DEMO_MUSIC 1
     #if LV_USE_DEMO_MUSIC
@@ -1367,38 +1367,38 @@
         #define LV_DEMO_MUSIC_LARGE     0
         #define LV_DEMO_MUSIC_AUTO_PLAY 0
     #endif
-    
+
     /** Vector graphic demo */
     #define LV_USE_DEMO_VECTOR_GRAPHIC  0
-    
+
     /*---------------------------
      * Demos from lvgl/lv_demos
       ---------------------------*/
-    
+
     /** Flex layout demo */
     #define LV_USE_DEMO_FLEX_LAYOUT     1
-    
+
     /** Smart-phone like multi-language demo */
     #define LV_USE_DEMO_MULTILANG       1
-    
+
     /** Widget transformation demo */
     #define LV_USE_DEMO_TRANSFORM       1
-    
+
     /** Demonstrate scroll settings */
     #define LV_USE_DEMO_SCROLL          1
-    
+
     /*E-bike demo with Lottie animations (if LV_USE_LOTTIE is enabled)*/
     #define LV_USE_DEMO_EBIKE           0
     #if LV_USE_DEMO_EBIKE
         #define LV_DEMO_EBIKE_PORTRAIT  0    /*0: for 480x270..480x320, 1: for 480x800..720x1280*/
     #endif
-    
+
     /** High-resolution demo */
     #define LV_USE_DEMO_HIGH_RES        1
-    
+
     /* Smart watch demo */
     #define LV_USE_DEMO_SMARTWATCH      0
-#endif /* LV_BUILD_DEMOS */ 
+#endif /* LV_BUILD_DEMOS */
 
 /*--END OF LV_CONF_H--*/
 
