@@ -1,0 +1,17 @@
+<screen>
+    <styles>
+        <style name="cell" border_side="full" />
+        <style name="cur" line_dash_gap="10" line_dash_width="10" />
+        <style name="heading" text_font="font_r16" />
+    </styles>
+    <view width="100%" height="100%" style_pad_all="24" flex_flow="row_wrap">
+        <lv_spangroup name="header" >
+            <lv_spangroup-span text="Home" />
+        </lv_spangroup>
+
+        <thermostat temp="temp1" flex_in_new_track="true" />
+        <thermostat temp="temp2" />
+        <thermostat temp="temp3" bind_flag_if_eq="hide hidden 1" />
+        <lv_checkbox text="Hide thermostat 3" bind_checked="hide" flex_in_new_track="true" />
+    </view>
+</screen>

@@ -1,0 +1,32 @@
+<globals>
+    <api>
+        <!-- Add <enumdefs> here -->
+    </api>
+
+    <consts>
+        <!-- Add <px>, <int>, <color> etc here -->
+    </consts>
+
+    <styles>
+        <!-- Add <style> tags here -->
+    </styles>
+
+    <images>
+        <!-- Add <file> or <data> tags here -->
+    </images>
+
+    <fonts>
+        <!-- Add <bin> , <tiny_ttf>, <freetype> tags here -->
+        <tiny_ttf name="font_r16" size="16" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="font_m16" size="16" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="font_sb32" size="32" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="font_b32" size="32" src_path="fonts/Barlow-Bold.ttf" />
+    </fonts>
+
+    <subjects>
+        <int name="temp1" value="10" />
+        <int name="temp2" value="20" />
+        <int name="temp3" value="20" />
+        <int name="hide" value="0" />
+    </subjects>
+</globals>
