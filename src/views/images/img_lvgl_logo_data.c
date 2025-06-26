@@ -1,6 +1,6 @@
 
 #if defined(LV_LVGL_H_INCLUDE_SIMPLE)
-#include "lvlg/lvgl.h"
+#include "lvgl/lvgl.h"
 #elif defined(LV_BUILD_TEST)
 #include "../lvgl.h"
 #else
