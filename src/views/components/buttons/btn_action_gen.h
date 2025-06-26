@@ -1,9 +1,9 @@
 /**
- * @file thermostat_gen.h
+ * @file btn_action_gen.h
  */
 
-#ifndef THERMOSTAT_H
-#define THERMOSTAT_H
+#ifndef BTN_ACTION_H
+#define BTN_ACTION_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,9 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-void temp_changed(lv_event_t * e);
-
-lv_obj_t * thermostat_create(lv_obj_t * parent, lv_subject_t * temp);
+lv_obj_t * btn_action_create(lv_obj_t * parent, const char * icon, int32_t size, int32_t padding);
 
 /**********************
  *      MACROS
@@ -38,4 +36,4 @@ lv_obj_t * thermostat_create(lv_obj_t * parent, lv_subject_t * temp);
 } /*extern "C"*/
 #endif
 
-#endif /*THERMOSTAT_H*/
+#endif /*BTN_ACTION_H*/

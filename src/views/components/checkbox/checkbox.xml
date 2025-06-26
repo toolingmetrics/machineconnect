@@ -1,0 +1,10 @@
+<component>
+    <api>
+        <prop name="text" type="string"/>
+        <prop name="subject" type="subject"/>
+    </api>
+    <styles>
+        <style name="box" transform_height="0" transform_width="0" />
+    </styles>
+    <view extends="lv_checkbox" bind_checked="$subject" styles="box:indicator:pressed" style_text_font="text_base_normal" ></view>
+</component>

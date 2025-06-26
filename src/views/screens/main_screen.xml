@@ -1,17 +1,44 @@
 <screen>
     <styles>
-        <style name="cell" border_side="full" />
-        <style name="cur" line_dash_gap="10" line_dash_width="10" />
-        <style name="heading" text_font="font_r16" />
     </styles>
-    <view width="100%" height="100%" style_pad_all="24" flex_flow="row_wrap">
-        <lv_spangroup name="header" >
-            <lv_spangroup-span text="Home" />
-        </lv_spangroup>
-
-        <thermostat temp="temp1" flex_in_new_track="true" />
-        <thermostat temp="temp2" />
-        <thermostat temp="temp3" bind_flag_if_eq="hide hidden 1" />
-        <lv_checkbox text="Hide thermostat 3" bind_checked="hide" flex_in_new_track="true" />
+    <view width="100%" height="100%" style_bg_color="0xe5e7eb" style_pad_all="0">
+        <header />
+        <lv_image src="img_favicon" width="80" height="80" align="top_mid" y="108" inner_align="stretch"></lv_image>
+        <lv_obj flex_flow="row_wrap" align="center" style_bg_color="0xffffff" style_margin_hor="8"
+            width="524" height="content" style_radius="16" style_pad_hor="24" style_pad_ver="32"
+            style_flex_main_place="center"
+            style_border_width="1" style_border_color="0xd1d5db"
+            style_shadow_color="0x000000" style_shadow_opa="26" style_shadow_offset_x="0" style_shadow_offset_y="2" >
+            <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
+                <btn_action icon="img_tool_load" size="192" padding="16">
+                    <lv_event-call_function callback="tool_load" trigger="clicked" />
+                </btn_action>
+                <lv_label text="Tool Load" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+            </lv_spangroup>
+            <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
+                <btn_action icon="img_tool_unload" size="192" padding="16">
+                    <lv_event-call_function callback="tool_unload" trigger="clicked" />
+                </btn_action>
+                <lv_label text="Tool Unload" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+            </lv_spangroup>
+            <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
+                <btn_action icon="img_tool_exchange" size="192" padding="16">
+                    <lv_event-call_function callback="tool_exchange" trigger="clicked" />
+                </btn_action>
+                <lv_label text="Exchange" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+            </lv_spangroup>
+            <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
+                <btn_action icon="img_tool_data" size="192" padding="16">
+                    <lv_event-call_function callback="tool_data" trigger="clicked" />
+                </btn_action>
+                <lv_label text="Lookup" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+            </lv_spangroup>
+            <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="0">
+                <btn_action icon="img_setup_assistant" size="192" padding="16">
+                    <lv_event-call_function callback="setup_assistant" trigger="clicked" />
+                </btn_action>
+                <lv_label text="Setup Assistant" style_text_font="text_3xl_semibold" width="210" style_text_align="center" style_align="bottom_mid"></lv_label>
+            </lv_spangroup>
+        </lv_obj>
     </view>
 </screen>

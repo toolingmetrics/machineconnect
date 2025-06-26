@@ -12,21 +12,105 @@
     </styles>
 
     <images>
-        <!-- Add <file> or <data> tags here -->
+        <!-- status assets -->
+        <data name="img_wifi_connect" src_path="images/wifi_connect.png" />
+        <data name="img_wifi_disconnect" src_path="images/wifi_disconnect.png" />
+        <data name="img_bluetooth_connect" src_path="images/bluetooth_connect.png" />
+        <data name="img_bluetooth_disconnect" src_path="images/bluetooth_disconnect.png" />
+        <data name="img_ethernet_connect" src_path="images/ethernet_connect.png" />
+        <data name="img_ethernet_disconnect" src_path="images/ethernet_disconnect.png" />
+        <data name="img_nfc" src_path="images/nfc.png" />
+
+        <!-- images assets -->
+        <data name="img_favicon" src_path="images/favicon.png" />
+        <data name="img_gear" src_path="images/gear.png" />
+        <data name="img_tool_load" src_path="images/tool_load.png" />
+        <data name="img_tool_unload" src_path="images/tool_unload.png" />
+        <data name="img_tool_exchange" src_path="images/tool_exchange.png" />
+        <data name="img_tool_data" src_path="images/tool_data.png" />
+        <data name="img_setup_assistant" src_path="images/setup_assistant.png" />
     </images>
 
     <fonts>
-        <!-- Add <bin> , <tiny_ttf>, <freetype> tags here -->
-        <tiny_ttf name="font_r16" size="16" src_path="fonts/Barlow-Regular.ttf" />
-        <tiny_ttf name="font_m16" size="16" src_path="fonts/Barlow-Medium.ttf" />
-        <tiny_ttf name="font_sb32" size="32" src_path="fonts/Barlow-SemiBold.ttf" />
-        <tiny_ttf name="font_b32" size="32" src_path="fonts/Barlow-Bold.ttf" />
+        <!-- text-xs -->
+        <tiny_ttf name="text_xs_normal" size="12" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_xs_medium" size="12" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_xs_semibold" size="12" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_xs_bold" size="12" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-sm -->
+        <tiny_ttf name="text_sm_normal" size="14" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_sm_medium" size="14" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_sm_semibold" size="14" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_sm_bold" size="14" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-base -->
+        <tiny_ttf name="text_base_normal" size="16" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_base_medium" size="16" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_base_semibold" size="16" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_base_bold" size="16" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-lg -->
+        <tiny_ttf name="text_lg_normal" size="18" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_lg_medium" size="18" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_lg_semibold" size="18" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_lg_bold" size="18" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-xl -->
+        <tiny_ttf name="text_xl_normal" size="20" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_xl_medium" size="20" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_xl_semibold" size="20" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_xl_bold" size="20" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-2xl -->
+        <tiny_ttf name="text_2xl_normal" size="24" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_2xl_medium" size="24" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_2xl_semibold" size="24" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_2xl_bold" size="24" src_path="fonts/Barlow-Bold.ttf" />
+        
+        <!-- text-3xl -->
+        <tiny_ttf name="text_3xl_normal" size="30" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_3xl_medium" size="30" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_3xl_semibold" size="30" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_3xl_bold" size="30" src_path="fonts/Barlow-Bold.ttf" />
+        
+        <!-- text-4xl -->
+        <tiny_ttf name="text_4xl_normal" size="36" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_4xl_medium" size="36" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_4xl_semibold" size="36" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_4xl_bold" size="36" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-5xl -->
+        <tiny_ttf name="text_5xl_normal" size="48" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_5xl_medium" size="48" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_5xl_semibold" size="48" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_5xl_bold" size="48" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-6xl -->
+        <tiny_ttf name="text_6xl_normal" size="60" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_6xl_medium" size="60" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_6xl_semibold" size="60" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_6xl_bold" size="60" src_path="fonts/Barlow-Bold.ttf" />
+
+        <!-- text-7xl -->
+        <tiny_ttf name="text_7xl_normal" size="72" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_7xl_medium" size="72" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_7xl_semibold" size="72" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_7xl_bold" size="72" src_path="fonts/Barlow-Bold.ttf" />
+        
+        <!-- text-8xl -->
+        <tiny_ttf name="text_8xl_normal" size="96" src_path="fonts/Barlow-Regular.ttf" />
+        <tiny_ttf name="text_8xl_medium" size="96" src_path="fonts/Barlow-Medium.ttf" />
+        <tiny_ttf name="text_8xl_semibold" size="96" src_path="fonts/Barlow-SemiBold.ttf" />
+        <tiny_ttf name="text_8xl_bold" size="96" src_path="fonts/Barlow-Bold.ttf" />
     </fonts>
 
     <subjects>
-        <int name="temp1" value="10" />
-        <int name="temp2" value="20" />
-        <int name="temp3" value="20" />
-        <int name="hide" value="0" />
+        <int name="hours" value="17"/>
+        <int name="mins" value="45"/>
+        <int name="bluetooth_on" value="0"/>
+        <int name="wifi_on" value="0"/>
+        <int name="ethernet_on" value="0"/>
+        <int name="nfc_on" value="0"/>
     </subjects>
 </globals>
