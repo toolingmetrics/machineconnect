@@ -138,7 +138,7 @@ uint8_t img_bluetooth_connect_data_map[] = {
 
 const lv_image_dsc_t img_bluetooth_connect_data = {
   .header.magic = LV_IMAGE_HEADER_MAGIC,
-  .header.cf = LV_COLOR_FORMAT_I8,
+  .header.cf = LV_COLOR_FORMAT_RGBA8888,
   .header.flags = 0,
   .header.w = 48,
   .header.h = 48,
