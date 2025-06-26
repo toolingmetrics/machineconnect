@@ -39,7 +39,7 @@ lv_obj_t * btn_action_create(lv_obj_t * parent, const char * icon, int32_t size,
     static bool style_inited = false;
 
     if (!style_inited) {
-        
+
         lv_style_init(&style_main);
         lv_style_set_bg_color(&style_main, lv_color_hex(0x007AD8));
         lv_style_set_radius(&style_main, 16);

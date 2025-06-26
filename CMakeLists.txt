@@ -156,12 +156,9 @@ if (CONFIG_LV_USE_OPENGLES)
 
 endif()
 
-file(GLOB LV_LINUX_SRC
+file(GLOB_RECURSE LV_LINUX_SRC
     src/lib/*.c
     src/views/*.c
-    src/views/components/*.c
-    src/views/screens/*.c
-    src/views/widgets/*.c
 )
 set(LV_LINUX_INC
     src/lib
