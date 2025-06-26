@@ -103,7 +103,6 @@ extern const void * img_ethernet_connect;
 extern const void * img_ethernet_disconnect;
 extern const void * img_nfc;
 extern const void * img_favicon;
-extern const void * img_gear;
 extern const void * img_tool_load;
 extern const void * img_tool_unload;
 extern const void * img_tool_exchange;

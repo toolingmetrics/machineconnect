@@ -29,7 +29,7 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-lv_obj_t * icon_create(lv_obj_t * parent)
+lv_obj_t * icon_create(lv_obj_t * parent, int32_t size, const char * image)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
@@ -42,8 +42,8 @@ lv_obj_t * icon_create(lv_obj_t * parent)
     if (!style_inited) {
         
         lv_style_init(&style_main);
-        lv_style_set_width(&style_main, 24);
-        lv_style_set_height(&style_main, 24);
+        lv_style_set_width(&style_main, size);
+        lv_style_set_height(&style_main, size);
         lv_style_set_image_recolor(&style_main, lv_color_hex(0xebebeb));
         lv_style_set_image_recolor_opa(&style_main, 255);
 
@@ -61,7 +61,7 @@ lv_obj_t * icon_create(lv_obj_t * parent)
         lv_obj_add_style(lv_image_1, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_style(lv_image_1, &style_pr, LV_PART_MAIN | LV_STATE_PRESSED);
     lv_obj_add_style(lv_image_1, &style_off, LV_PART_MAIN | LV_STATE_DISABLED);
-    lv_image_set_src(lv_image_1, img_gear);
+    lv_image_set_src(lv_image_1, image);
     lv_image_set_inner_align(lv_image_1, LV_IMAGE_ALIGN_STRETCH);
 
 

@@ -3,14 +3,15 @@
         <preview style_bg_color="0x222222" width="100" height="100"/>
     </previews>
 
-    <consts>
-        <int name="size" value="24"/>
-    </consts>
-    
+    <api>
+        <prop name="size" type="int" default="24"/>
+        <prop name="image" type="string" default="img_favicon"/>
+    </api>
+
     <styles>
-        <style name="main" width="#size" height="#size" image_recolor="0xebebeb" image_recolor_opa="255"/>
+        <style name="main" width="$size" height="$size" image_recolor="0xebebeb" image_recolor_opa="255"/>
         <style name="pr" image_recolor="0xffffff" image_recolor_opa="255"/>
         <style name="off" image_opa="128"/>
     </styles>
-    <view extends="lv_image" src="img_gear" styles="main pr:pressed off:disabled" inner_align="stretch"></view> 
+    <view extends="lv_image" src="$image" styles="main pr:pressed off:disabled" inner_align="stretch"></view>
 </component>

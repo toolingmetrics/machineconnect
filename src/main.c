@@ -150,7 +150,7 @@ int main(int argc, char **argv)
 #endif
 
     // Initialize views UI
-    ui_init("");
+    ui_init("src/views/");
     lv_obj_t *screen = main_screen_create();
     lv_scr_load(screen);
 

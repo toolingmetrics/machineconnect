@@ -99,7 +99,6 @@ const void * img_ethernet_connect;
 const void * img_ethernet_disconnect;
 const void * img_nfc;
 const void * img_favicon;
-const void * img_gear;
 const void * img_tool_load;
 const void * img_tool_unload;
 const void * img_tool_exchange;
@@ -251,8 +250,6 @@ void views_init_gen(const char * asset_path)
     img_nfc = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/favicon.png");
     img_favicon = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/gear.png");
-    img_gear = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_load.png");
     img_tool_load = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_unload.png");
@@ -323,7 +320,6 @@ void views_init_gen(const char * asset_path)
         lv_xml_register_image(NULL, "img_ethernet_disconnect", img_ethernet_disconnect);
         lv_xml_register_image(NULL, "img_nfc", img_nfc);
         lv_xml_register_image(NULL, "img_favicon", img_favicon);
-        lv_xml_register_image(NULL, "img_gear", img_gear);
         lv_xml_register_image(NULL, "img_tool_load", img_tool_load);
         lv_xml_register_image(NULL, "img_tool_unload", img_tool_unload);
         lv_xml_register_image(NULL, "img_tool_exchange", img_tool_exchange);

@@ -23,7 +23,6 @@
 
         <!-- images assets -->
         <data name="img_favicon" src_path="images/favicon.png" />
-        <data name="img_gear" src_path="images/gear.png" />
         <data name="img_tool_load" src_path="images/tool_load.png" />
         <data name="img_tool_unload" src_path="images/tool_unload.png" />
         <data name="img_tool_exchange" src_path="images/tool_exchange.png" />
@@ -67,13 +66,13 @@
         <tiny_ttf name="text_2xl_medium" size="24" src_path="fonts/Barlow-Medium.ttf" />
         <tiny_ttf name="text_2xl_semibold" size="24" src_path="fonts/Barlow-SemiBold.ttf" />
         <tiny_ttf name="text_2xl_bold" size="24" src_path="fonts/Barlow-Bold.ttf" />
-        
+
         <!-- text-3xl -->
         <tiny_ttf name="text_3xl_normal" size="30" src_path="fonts/Barlow-Regular.ttf" />
         <tiny_ttf name="text_3xl_medium" size="30" src_path="fonts/Barlow-Medium.ttf" />
         <tiny_ttf name="text_3xl_semibold" size="30" src_path="fonts/Barlow-SemiBold.ttf" />
         <tiny_ttf name="text_3xl_bold" size="30" src_path="fonts/Barlow-Bold.ttf" />
-        
+
         <!-- text-4xl -->
         <tiny_ttf name="text_4xl_normal" size="36" src_path="fonts/Barlow-Regular.ttf" />
         <tiny_ttf name="text_4xl_medium" size="36" src_path="fonts/Barlow-Medium.ttf" />
@@ -97,7 +96,7 @@
         <tiny_ttf name="text_7xl_medium" size="72" src_path="fonts/Barlow-Medium.ttf" />
         <tiny_ttf name="text_7xl_semibold" size="72" src_path="fonts/Barlow-SemiBold.ttf" />
         <tiny_ttf name="text_7xl_bold" size="72" src_path="fonts/Barlow-Bold.ttf" />
-        
+
         <!-- text-8xl -->
         <tiny_ttf name="text_8xl_normal" size="96" src_path="fonts/Barlow-Regular.ttf" />
         <tiny_ttf name="text_8xl_medium" size="96" src_path="fonts/Barlow-Medium.ttf" />

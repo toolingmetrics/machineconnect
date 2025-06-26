@@ -29,7 +29,7 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-lv_obj_t * btn_action_create(lv_obj_t * parent, const char * icon, int32_t size, int32_t padding)
+lv_obj_t * btn_action_create(lv_obj_t * parent, void * icon, int32_t size, int32_t padding)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
@@ -69,10 +69,12 @@ lv_obj_t * btn_action_create(lv_obj_t * parent, const char * icon, int32_t size,
     lv_obj_set_style_margin_all(lv_button_1, 4, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_pad_all(lv_button_1, padding, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_t * icon_1 = icon_create(lv_button_1);
-    lv_obj_set_align(icon_1, LV_ALIGN_CENTER);
-    lv_obj_set_width(icon_1, lv_pct(100));
-    lv_obj_set_height(icon_1, lv_pct(100));
+    lv_obj_t * lv_image_1 = lv_image_create(lv_button_1);
+    lv_image_set_src(lv_image_1, icon);
+    lv_obj_set_width(lv_image_1, lv_pct(100));
+    lv_obj_set_height(lv_image_1, lv_pct(100));
+    lv_obj_set_style_image_recolor(lv_image_1, lv_color_hex(0xebebeb), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_image_set_inner_align(lv_image_1, LV_IMAGE_ALIGN_STRETCH);
 
 
     LV_TRACE_OBJ_CREATE("finished");

@@ -1,14 +1,14 @@
 <component>
     <previews>
-        <preview width="200" height="200" 
+        <preview width="200" height="200"
                 style_bg_color="0xdddddd" style_pad_all="10">
         </preview>
-    </previews>   
-    <api>  
-        <prop name="icon" type="string" default="img_gear"></prop>
+    </previews>
+    <api>
+        <prop name="icon" type="image" default="img_wifi_connect"></prop>
         <prop name="size" type="int" default="96"></prop>
         <prop name="padding" type="int" default="16"></prop>
-    </api> 
+    </api>
 
     <styles>
         <style name="main" bg_color="0x007AD8" radius="16" width="content" height="content"
@@ -17,6 +17,6 @@
         <style name="pr" bg_color="0x005AA3" radius="16" />
     </styles>
     <view extends="lv_button" width="$size" height="$size" styles="main pr:pressed" style_margin_all="4" style_pad_all="$padding">
-        <icon src="$icon" align="center" width="100%" height="100%" />
+        <lv_image src="$icon" width="100%" height="100%" style_image_recolor="0xebebeb" inner_align="stretch" />
     </view>
 </component>
