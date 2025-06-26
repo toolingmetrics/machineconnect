@@ -37,7 +37,7 @@ lv_obj_t * main_screen_create(void)
     static bool style_inited = false;
 
     if(!style_inited) {
-        
+
         style_inited = true;
     }
 
@@ -50,7 +50,7 @@ lv_obj_t * main_screen_create(void)
     header_create(lv_obj_1);
 
     lv_obj_t * lv_image_1 = lv_image_create(lv_obj_1);
-    lv_image_set_src(lv_image_1, img_favicon);
+    lv_image_set_src(lv_image_1, img_lvgl_logo);
     lv_obj_set_width(lv_image_1, 80);
     lv_obj_set_height(lv_image_1, 80);
     lv_obj_set_align(lv_image_1, LV_ALIGN_TOP_MID);

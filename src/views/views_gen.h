@@ -102,6 +102,7 @@ extern const void * img_bluetooth_disconnect;
 extern const void * img_ethernet_connect;
 extern const void * img_ethernet_disconnect;
 extern const void * img_nfc;
+extern const void * img_lvgl_logo;
 extern const void * img_favicon;
 extern const void * img_tool_load;
 extern const void * img_tool_unload;
