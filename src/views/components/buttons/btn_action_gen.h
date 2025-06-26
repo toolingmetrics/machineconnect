@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * btn_action_create(lv_obj_t * parent, void * icon, int32_t size, int32_t padding);
+lv_obj_t * btn_action_create(lv_obj_t * parent, const void * icon, int32_t size, int32_t padding);
 
 /**********************
  *      MACROS

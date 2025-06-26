@@ -25,13 +25,13 @@
                 <btn_action icon="img_tool_exchange" size="192" padding="16">
                     <lv_event-call_function callback="tool_exchange" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Exchange" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Exchange" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
                 <btn_action icon="img_tool_data" size="192" padding="16">
                     <lv_event-call_function callback="tool_data" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Lookup" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Data" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="0">
                 <btn_action icon="img_setup_assistant" size="192" padding="16">

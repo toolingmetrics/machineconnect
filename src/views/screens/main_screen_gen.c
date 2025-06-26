@@ -37,7 +37,7 @@ lv_obj_t * main_screen_create(void)
     static bool style_inited = false;
 
     if(!style_inited) {
-
+        
         style_inited = true;
     }
 
@@ -118,7 +118,7 @@ lv_obj_t * main_screen_create(void)
 
     lv_obj_add_event_cb(btn_action_3, tool_exchange, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_3 = lv_label_create(lv_spangroup_3);
-    lv_label_set_text(lv_label_3, "Exchange");
+    lv_label_set_text(lv_label_3, "Tool Exchange");
     lv_obj_set_style_text_font(lv_label_3, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_3, 200);
     lv_obj_set_style_text_align(lv_label_3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -134,7 +134,7 @@ lv_obj_t * main_screen_create(void)
 
     lv_obj_add_event_cb(btn_action_4, tool_data, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_4 = lv_label_create(lv_spangroup_4);
-    lv_label_set_text(lv_label_4, "Lookup");
+    lv_label_set_text(lv_label_4, "Tool Data");
     lv_obj_set_style_text_font(lv_label_4, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_4, 200);
     lv_obj_set_style_text_align(lv_label_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
