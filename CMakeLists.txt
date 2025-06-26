@@ -34,29 +34,29 @@ if (CONFIG_LV_USE_EVDEV)
 
 endif()
 
-if (CONFIG_LV_USE_LINUX_DRM)
+# if (CONFIG_LV_USE_LINUX_DRM)
 
-    message("Including DRM support")
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(LIBDRM REQUIRED libdrm)
+#     message("Including DRM support")
+#     find_package(PkgConfig REQUIRED)
+#     pkg_check_modules(LIBDRM REQUIRED libdrm)
 
-    list(APPEND PKG_CONFIG_LIB ${LIBDRM_LIBRARIES})
-    list(APPEND PKG_CONFIG_INC ${LIBDRM_INCLUDE_DIRS})
-    list(APPEND LV_LINUX_BACKEND_SRC src/lib/display_backends/drm.c)
+#     list(APPEND PKG_CONFIG_LIB ${LIBDRM_LIBRARIES})
+#     list(APPEND PKG_CONFIG_INC ${LIBDRM_INCLUDE_DIRS})
+#     list(APPEND LV_LINUX_BACKEND_SRC src/lib/display_backends/drm.c)
 
-endif()
+# endif()
 
-if (CONFIG_LV_USE_LINUX_DRM_GBM_BUFFERS)
+# if (CONFIG_LV_USE_LINUX_DRM_GBM_BUFFERS)
 
-    message("Including GBM support")
+#     message("Including GBM support")
 
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(LIBGBM REQUIRED gbm)
+#     find_package(PkgConfig REQUIRED)
+#     pkg_check_modules(LIBGBM REQUIRED gbm)
 
-    list(APPEND PKG_CONFIG_LIB ${LIBGBM_LIBRARIES})
-    list(APPEND PKG_CONFIG_INC ${LIBGBM_INCLUDE_DIRS})
+#     list(APPEND PKG_CONFIG_LIB ${LIBGBM_LIBRARIES})
+#     list(APPEND PKG_CONFIG_INC ${LIBGBM_INCLUDE_DIRS})
 
-endif()
+# endif()
 
 if (CONFIG_LV_USE_LIBINPUT)
     message("Including libinput support")
