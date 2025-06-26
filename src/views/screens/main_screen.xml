@@ -3,7 +3,7 @@
     </styles>
     <view width="100%" height="100%" style_bg_color="0xe5e7eb" style_pad_all="0">
         <header />
-        <lv_image src="img_lvgl_logo" width="80" height="80" align="top_mid" y="108" inner_align="stretch"></lv_image>
+        <lv_image src="img_favicon" width="80" height="80" align="top_mid" y="108" inner_align="stretch"></lv_image>
         <lv_obj flex_flow="row_wrap" align="center" style_bg_color="0xffffff" style_margin_hor="8" style_max_width="100%"
             width="526" height="content" style_radius="16" style_pad_hor="24" style_pad_ver="36"
             style_flex_main_place="center"
@@ -13,31 +13,31 @@
                 <btn_action icon="img_tool_load" size="192" padding="16">
                     <lv_event-call_function callback="tool_load" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Tool Load" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Load" style_text_font="text_3xl_medium" width="200" style_text_align="center" style_align="bottom_mid" style_text_color="0x4B5563"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
                 <btn_action icon="img_tool_unload" size="192" padding="16">
                     <lv_event-call_function callback="tool_unload" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Tool Unload" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Unload" style_text_font="text_3xl_medium" width="200" style_text_align="center" style_align="bottom_mid" style_text_color="0x4B5563"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
                 <btn_action icon="img_tool_exchange" size="192" padding="16">
                     <lv_event-call_function callback="tool_exchange" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Tool Exchange" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Exchange" style_text_font="text_3xl_medium" width="200" style_text_align="center" style_align="bottom_mid" style_text_color="0x4B5563"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="16">
                 <btn_action icon="img_tool_data" size="192" padding="16">
                     <lv_event-call_function callback="tool_data" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Tool Data" style_text_font="text_3xl_semibold" width="200" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Tool Data" style_text_font="text_3xl_medium" width="200" style_text_align="center" style_align="bottom_mid" style_text_color="0x4B5563"></lv_label>
             </lv_spangroup>
             <lv_spangroup flex_flow="column_wrap" style_pad_row="12" style_margin_hor="16" style_margin_bottom="0">
                 <btn_action icon="img_setup_assistant" size="192" padding="16">
                     <lv_event-call_function callback="setup_assistant" trigger="clicked" />
                 </btn_action>
-                <lv_label text="Setup Assistant" style_text_font="text_3xl_semibold" width="210" style_text_align="center" style_align="bottom_mid"></lv_label>
+                <lv_label text="Setup Assistant" style_text_font="text_3xl_medium" width="210" style_text_align="center" style_align="bottom_mid" style_text_color="0x4B5563"></lv_label>
             </lv_spangroup>
         </lv_obj>
     </view>

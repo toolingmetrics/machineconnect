@@ -50,7 +50,7 @@ lv_obj_t * main_screen_create(void)
     header_create(lv_obj_1);
 
     lv_obj_t * lv_image_1 = lv_image_create(lv_obj_1);
-    lv_image_set_src(lv_image_1, img_lvgl_logo);
+    lv_image_set_src(lv_image_1, img_favicon);
     lv_obj_set_width(lv_image_1, 80);
     lv_obj_set_height(lv_image_1, 80);
     lv_obj_set_align(lv_image_1, LV_ALIGN_TOP_MID);
@@ -87,10 +87,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_add_event_cb(btn_action_1, tool_load, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_1 = lv_label_create(lv_spangroup_1);
     lv_label_set_text(lv_label_1, "Tool Load");
-    lv_obj_set_style_text_font(lv_label_1, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(lv_label_1, text_3xl_medium, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_1, 200);
     lv_obj_set_style_text_align(lv_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_align(lv_label_1, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_1, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * lv_spangroup_2 = lv_spangroup_create(lv_obj_2);
     lv_obj_set_flex_flow(lv_spangroup_2, LV_FLEX_FLOW_COLUMN_WRAP);
@@ -103,10 +104,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_add_event_cb(btn_action_2, tool_unload, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_2 = lv_label_create(lv_spangroup_2);
     lv_label_set_text(lv_label_2, "Tool Unload");
-    lv_obj_set_style_text_font(lv_label_2, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(lv_label_2, text_3xl_medium, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_2, 200);
     lv_obj_set_style_text_align(lv_label_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_align(lv_label_2, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_2, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * lv_spangroup_3 = lv_spangroup_create(lv_obj_2);
     lv_obj_set_flex_flow(lv_spangroup_3, LV_FLEX_FLOW_COLUMN_WRAP);
@@ -119,10 +121,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_add_event_cb(btn_action_3, tool_exchange, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_3 = lv_label_create(lv_spangroup_3);
     lv_label_set_text(lv_label_3, "Tool Exchange");
-    lv_obj_set_style_text_font(lv_label_3, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(lv_label_3, text_3xl_medium, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_3, 200);
     lv_obj_set_style_text_align(lv_label_3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_align(lv_label_3, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_3, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * lv_spangroup_4 = lv_spangroup_create(lv_obj_2);
     lv_obj_set_flex_flow(lv_spangroup_4, LV_FLEX_FLOW_COLUMN_WRAP);
@@ -135,10 +138,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_add_event_cb(btn_action_4, tool_data, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_4 = lv_label_create(lv_spangroup_4);
     lv_label_set_text(lv_label_4, "Tool Data");
-    lv_obj_set_style_text_font(lv_label_4, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(lv_label_4, text_3xl_medium, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_4, 200);
     lv_obj_set_style_text_align(lv_label_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_align(lv_label_4, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_4, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * lv_spangroup_5 = lv_spangroup_create(lv_obj_2);
     lv_obj_set_flex_flow(lv_spangroup_5, LV_FLEX_FLOW_COLUMN_WRAP);
@@ -151,10 +155,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_add_event_cb(btn_action_5, setup_assistant, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_5 = lv_label_create(lv_spangroup_5);
     lv_label_set_text(lv_label_5, "Setup Assistant");
-    lv_obj_set_style_text_font(lv_label_5, text_3xl_semibold, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(lv_label_5, text_3xl_medium, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_5, 210);
     lv_obj_set_style_text_align(lv_label_5, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_align(lv_label_5, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_5, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
 
     LV_TRACE_OBJ_CREATE("finished");
