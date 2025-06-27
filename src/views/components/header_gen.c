@@ -81,6 +81,8 @@ lv_obj_t * header_create(lv_obj_t * parent)
     lv_label_bind_text(lv_label_3, &subject_mins, NULL);
     lv_obj_set_style_text_font(lv_label_3, text_4xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    lv_timer_create(time_update_system_item_cb, 1000, NULL);
+
     lv_obj_t * lv_image_1 = lv_image_create(lv_obj_1);
     LV_IMAGE_DECLARE(img_nfc);
     lv_image_set_src(lv_image_1, &img_nfc);

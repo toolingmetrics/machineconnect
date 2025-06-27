@@ -17,6 +17,7 @@ extern "C" {
 /*********************
  *      DEFINES
  *********************/
+void time_update_system_item_cb(lv_timer_t * timer);
 
 /**********************
  *      TYPEDEFS

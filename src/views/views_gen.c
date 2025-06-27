@@ -115,8 +115,8 @@ void views_init_gen(const char * asset_path)
     /* Global Styles */
 
     /* Subjects */
-    lv_subject_init_int(&subject_hours, 17);
-    lv_subject_init_int(&subject_mins, 45);
+    lv_subject_init_int(&subject_hours, 10);
+    lv_subject_init_int(&subject_mins, 10);
     lv_subject_init_int(&subject_bluetooth_on, 0);
     lv_subject_init_int(&subject_wifi_on, 0);
     lv_subject_init_int(&subject_ethernet_on, 0);

@@ -6,6 +6,7 @@
  *      INCLUDES
  *********************/
 #include "views.h"
+#include <time.h>
 
 /*********************
  *      DEFINES
@@ -64,6 +65,18 @@ void setup_assistant(lv_event_t * e)
 {
    LV_UNUSED(e);
    LV_LOG("setup_assistant was called\n");
+}
+
+void time_update_system_item_cb(lv_timer_t * timer)
+{
+   time_t rawtime;
+   struct tm * timeinfo;
+
+   time(&rawtime);
+   timeinfo = localtime(&rawtime);
+   // Update the subjects with the new time.
+   lv_subject_set_int(&subject_hours, timeinfo->tm_hour);
+   lv_subject_set_int(&subject_mins, timeinfo->tm_min);
 }
 
 /**********************
