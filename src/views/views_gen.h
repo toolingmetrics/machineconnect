@@ -112,7 +112,7 @@ void tool_unload(lv_event_t * e);
 void tool_exchange(lv_event_t * e);
 void tool_data(lv_event_t * e);
 void setup_assistant(lv_event_t * e);
-void system_setting(lv_event_t * e);
+void system_settings(lv_event_t * e);
 
 /**
  * Initialize the component library

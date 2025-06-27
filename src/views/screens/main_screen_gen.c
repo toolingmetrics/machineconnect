@@ -167,12 +167,12 @@ lv_obj_t * main_screen_create(void)
     lv_obj_set_style_pad_row(lv_spangroup_6, 12, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_margin_hor(lv_spangroup_6, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_margin_bottom(lv_spangroup_6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    LV_IMAGE_DECLARE(img_setting);
-    lv_obj_t * btn_action_6 = btn_action_create(lv_spangroup_6, &img_setting, 192, 16);
+    LV_IMAGE_DECLARE(img_settings);
+    lv_obj_t * btn_action_6 = btn_action_create(lv_spangroup_6, &img_settings, 192, 16);
 
-    lv_obj_add_event_cb(btn_action_6, system_setting, LV_EVENT_CLICKED, NULL);
+    lv_obj_add_event_cb(btn_action_6, system_settings, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_label_6 = lv_label_create(lv_spangroup_6);
-    lv_label_set_text(lv_label_6, "Setting");
+    lv_label_set_text(lv_label_6, "Settings");
     lv_obj_set_style_text_font(lv_label_6, text_3xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(lv_label_6, 200);
     lv_obj_set_style_text_align(lv_label_6, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);

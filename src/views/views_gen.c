@@ -289,7 +289,7 @@ void views_init_gen(const char * asset_path)
         lv_xml_register_event_cb(NULL, "tool_exchange", tool_exchange);
         lv_xml_register_event_cb(NULL, "tool_data", tool_data);
         lv_xml_register_event_cb(NULL, "setup_assistant", setup_assistant);
-        lv_xml_register_event_cb(NULL, "system_setting", system_setting);
+        lv_xml_register_event_cb(NULL, "system_settings", system_settings);
     #endif
 }
 
@@ -320,10 +320,10 @@ void __attribute__((weak)) setup_assistant(lv_event_t * e)
    LV_UNUSED(e);
    LV_LOG("setup_assistant was called\n");
 }
-void __attribute__((weak)) system_setting(lv_event_t * e)
+void __attribute__((weak)) system_settings(lv_event_t * e)
 {
    LV_UNUSED(e);
-   LV_LOG("system_setting was called\n");
+   LV_LOG("system_settings was called\n");
 }
 #endif
 
