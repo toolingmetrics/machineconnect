@@ -64,11 +64,11 @@ lv_obj_t * main_screen_create(void)
     lv_obj_set_style_bg_color(lv_obj_2, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_margin_hor(lv_obj_2, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_max_width(lv_obj_2, lv_pct(100), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_width(lv_obj_2, 526);
+    lv_obj_set_width(lv_obj_2, 536);
     lv_obj_set_height(lv_obj_2, LV_SIZE_CONTENT);
     lv_obj_set_style_radius(lv_obj_2, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_pad_hor(lv_obj_2, 24, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_ver(lv_obj_2, 36, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_ver(lv_obj_2, 40, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_flex_main_place(lv_obj_2, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(lv_obj_2, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(lv_obj_2, lv_color_hex(0xd1d5db), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -162,6 +162,22 @@ lv_obj_t * main_screen_create(void)
     lv_obj_set_style_align(lv_label_5, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(lv_label_5, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    lv_obj_t * lv_spangroup_6 = lv_spangroup_create(lv_obj_2);
+    lv_obj_set_flex_flow(lv_spangroup_6, LV_FLEX_FLOW_COLUMN_WRAP);
+    lv_obj_set_style_pad_row(lv_spangroup_6, 12, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_margin_hor(lv_spangroup_6, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_margin_bottom(lv_spangroup_6, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    LV_IMAGE_DECLARE(img_setting);
+    lv_obj_t * btn_action_6 = btn_action_create(lv_spangroup_6, &img_setting, 192, 16);
+
+    lv_obj_add_event_cb(btn_action_6, system_setting, LV_EVENT_CLICKED, NULL);
+    lv_obj_t * lv_label_6 = lv_label_create(lv_spangroup_6);
+    lv_label_set_text(lv_label_6, "Setting");
+    lv_obj_set_style_text_font(lv_label_6, text_3xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_width(lv_label_6, 200);
+    lv_obj_set_style_text_align(lv_label_6, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_align(lv_label_6, LV_ALIGN_BOTTOM_MID, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(lv_label_6, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     LV_TRACE_OBJ_CREATE("finished");
 

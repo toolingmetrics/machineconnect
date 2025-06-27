@@ -70,6 +70,12 @@ void setup_assistant(lv_event_t * e)
    LV_LOG("setup_assistant was called\n");
 }
 
+void system_setting(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("system_setting was called\n");
+}
+
 void update_system_status(lv_timer_t *timer)
 {
    time_t rawtime;

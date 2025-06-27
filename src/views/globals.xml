@@ -28,6 +28,7 @@
         <data name="img_tool_exchange" src_path="images/img_tool_exchange.png" />
         <data name="img_tool_data" src_path="images/img_tool_data.png" />
         <data name="img_setup_assistant" src_path="images/img_setup_assistant.png" />
+        <data name="img_setting" src_path="images/img_setting.png" />
     </images>
 
     <fonts>
