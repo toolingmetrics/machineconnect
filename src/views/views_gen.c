@@ -98,7 +98,6 @@ const void * img_bluetooth_disconnect;
 const void * img_ethernet_connect;
 const void * img_ethernet_disconnect;
 const void * img_nfc;
-const void * img_lvgl_logo;
 const void * img_favicon;
 const void * img_tool_load;
 const void * img_tool_unload;
@@ -249,8 +248,6 @@ void views_init_gen(const char * asset_path)
     img_ethernet_disconnect = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/nfc.png");
     img_nfc = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/lvgl_logo.png");
-    img_lvgl_logo = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/favicon.png");
     img_favicon = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_load.png");
@@ -322,7 +319,6 @@ void views_init_gen(const char * asset_path)
         lv_xml_register_image(NULL, "img_ethernet_connect", img_ethernet_connect);
         lv_xml_register_image(NULL, "img_ethernet_disconnect", img_ethernet_disconnect);
         lv_xml_register_image(NULL, "img_nfc", img_nfc);
-        lv_xml_register_image(NULL, "img_lvgl_logo", img_lvgl_logo);
         lv_xml_register_image(NULL, "img_favicon", img_favicon);
         lv_xml_register_image(NULL, "img_tool_load", img_tool_load);
         lv_xml_register_image(NULL, "img_tool_unload", img_tool_unload);

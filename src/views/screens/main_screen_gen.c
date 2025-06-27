@@ -37,7 +37,7 @@ lv_obj_t * main_screen_create(void)
     static bool style_inited = false;
 
     if(!style_inited) {
-        
+
         style_inited = true;
     }
 
@@ -56,6 +56,16 @@ lv_obj_t * main_screen_create(void)
     lv_obj_set_align(lv_image_1, LV_ALIGN_TOP_MID);
     lv_obj_set_y(lv_image_1, 108);
     lv_image_set_inner_align(lv_image_1, LV_IMAGE_ALIGN_STRETCH);
+
+    lv_obj_t * logo = lv_image_create(lv_obj_1);
+    lv_obj_add_flag(logo, LV_OBJ_FLAG_IGNORE_LAYOUT);
+    LV_IMAGE_DECLARE(img_lvgl_logo);
+    lv_image_set_src(logo, &img_lvgl_logo);
+    lv_obj_set_width(logo, 48);
+    lv_obj_set_height(logo, 48);
+    lv_obj_set_align(logo, LV_ALIGN_TOP_MID);
+    lv_obj_set_y(logo, 10);
+    lv_image_set_inner_align(logo, LV_IMAGE_ALIGN_STRETCH);
 
     lv_obj_t * lv_obj_2 = lv_obj_create(lv_obj_1);
     lv_obj_set_flex_flow(lv_obj_2, LV_FLEX_FLOW_ROW_WRAP);

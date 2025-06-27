@@ -22,7 +22,6 @@
         <data name="img_nfc" src_path="images/nfc.png" />
 
         <!-- images assets -->
-        <data name="img_lvgl_logo" src_path="images/lvgl_logo.png" />
         <data name="img_favicon" src_path="images/favicon.png" />
         <data name="img_tool_load" src_path="images/tool_load.png" />
         <data name="img_tool_unload" src_path="images/tool_unload.png" />
