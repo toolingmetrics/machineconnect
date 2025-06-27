@@ -13,21 +13,21 @@
 
     <images>
         <!-- status assets -->
-        <data name="img_wifi_connect" src_path="images/wifi_connect.png" />
-        <data name="img_wifi_disconnect" src_path="images/wifi_disconnect.png" />
-        <data name="img_bluetooth_connect" src_path="images/bluetooth_connect.png" />
-        <data name="img_bluetooth_disconnect" src_path="images/bluetooth_disconnect.png" />
-        <data name="img_ethernet_connect" src_path="images/ethernet_connect.png" />
-        <data name="img_ethernet_disconnect" src_path="images/ethernet_disconnect.png" />
-        <data name="img_nfc" src_path="images/nfc.png" />
+        <data name="img_wifi_connect" src_path="images/img_wifi_connect.png" />
+        <data name="img_wifi_disconnect" src_path="images/img_wifi_disconnect.png" />
+        <data name="img_bluetooth_connect" src_path="images/img_bluetooth_connect.png" />
+        <data name="img_bluetooth_disconnect" src_path="images/img_bluetooth_disconnect.png" />
+        <data name="img_ethernet_connect" src_path="images/img_ethernet_connect.png" />
+        <data name="img_ethernet_disconnect" src_path="images/img_ethernet_disconnect.png" />
+        <data name="img_nfc" src_path="images/img_nfc.png" />
 
         <!-- images assets -->
-        <data name="img_favicon" src_path="images/favicon.png" />
-        <data name="img_tool_load" src_path="images/tool_load.png" />
-        <data name="img_tool_unload" src_path="images/tool_unload.png" />
-        <data name="img_tool_exchange" src_path="images/tool_exchange.png" />
-        <data name="img_tool_data" src_path="images/tool_data.png" />
-        <data name="img_setup_assistant" src_path="images/setup_assistant.png" />
+        <data name="img_favicon" src_path="images/img_favicon.png" />
+        <data name="img_tool_load" src_path="images/img_tool_load.png" />
+        <data name="img_tool_unload" src_path="images/img_tool_unload.png" />
+        <data name="img_tool_exchange" src_path="images/img_tool_exchange.png" />
+        <data name="img_tool_data" src_path="images/img_tool_data.png" />
+        <data name="img_setup_assistant" src_path="images/img_setup_assistant.png" />
     </images>
 
     <fonts>
