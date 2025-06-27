@@ -17,7 +17,10 @@ extern "C" {
 /*********************
  *      DEFINES
  *********************/
-void time_update_system_item_cb(lv_timer_t * timer);
+void update_system_status(lv_timer_t * timer);
+static bool has_ip_address(const char *iface);
+static int check_wifi_status(void);
+static int check_bluetooth_status(void);
 
 /**********************
  *      TYPEDEFS

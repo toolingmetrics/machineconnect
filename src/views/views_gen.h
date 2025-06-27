@@ -96,8 +96,7 @@ extern lv_font_t * text_8xl_bold;
 /* Images */
 
 /* Subjects */
-extern lv_subject_t subject_hours;
-extern lv_subject_t subject_mins;
+extern lv_subject_t subject_system_time;
 extern lv_subject_t subject_bluetooth_on;
 extern lv_subject_t subject_wifi_on;
 extern lv_subject_t subject_ethernet_on;

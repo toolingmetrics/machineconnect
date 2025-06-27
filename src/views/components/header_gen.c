@@ -60,28 +60,11 @@ lv_obj_t * header_create(lv_obj_t * parent)
         lv_obj_add_style(lv_obj_1, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_flag(lv_obj_1, LV_OBJ_FLAG_SCROLLABLE, false);
 
-    lv_obj_t * row_1 = row_create(lv_obj_1);
-    lv_obj_set_flex_grow(row_1, 1);
-    lv_obj_set_width(row_1, 80);
-    lv_obj_set_style_flex_main_place(row_1, LV_FLEX_ALIGN_START, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(row_1, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_column(row_1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_t * lv_label_1 = lv_label_create(lv_obj_1);
+    lv_obj_set_flex_grow(lv_label_1, 1);
 
-    lv_obj_t * lv_label_1 = lv_label_create(row_1);
-
-    lv_label_bind_text(lv_label_1, &subject_hours, NULL);
+    lv_label_bind_text(lv_label_1, &subject_system_time, NULL);
     lv_obj_set_style_text_font(lv_label_1, text_4xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_obj_t * lv_label_2 = lv_label_create(row_1);
-    lv_label_set_text(lv_label_2, ":");
-    lv_obj_set_style_text_font(lv_label_2, text_4xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_obj_t * lv_label_3 = lv_label_create(row_1);
-
-    lv_label_bind_text(lv_label_3, &subject_mins, NULL);
-    lv_obj_set_style_text_font(lv_label_3, text_4xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_timer_create(time_update_system_item_cb, 1000, NULL);
 
     lv_obj_t * lv_image_1 = lv_image_create(lv_obj_1);
     LV_IMAGE_DECLARE(img_nfc);
@@ -89,7 +72,7 @@ lv_obj_t * header_create(lv_obj_t * parent)
     lv_obj_set_width(lv_image_1, 48);
     lv_obj_set_height(lv_image_1, 48);
     lv_obj_set_style_margin_hor(lv_image_1, 6, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_bind_flag_if_eq(lv_image_1, &subject_nfc_on, LV_OBJ_FLAG_HIDDEN, 1);
+    lv_obj_bind_flag_if_eq(lv_image_1, &subject_nfc_on, LV_OBJ_FLAG_HIDDEN, 0);
 
     lv_obj_t * lv_image_2 = lv_image_create(lv_obj_1);
     LV_IMAGE_DECLARE(img_ethernet_disconnect);
@@ -97,7 +80,7 @@ lv_obj_t * header_create(lv_obj_t * parent)
     lv_obj_set_width(lv_image_2, 48);
     lv_obj_set_height(lv_image_2, 48);
     lv_obj_set_style_margin_hor(lv_image_2, 6, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_bind_flag_if_eq(lv_image_2, &subject_ethernet_on, LV_OBJ_FLAG_HIDDEN, 0);
+    lv_obj_bind_flag_if_eq(lv_image_2, &subject_ethernet_on, LV_OBJ_FLAG_HIDDEN, 1);
 
     lv_obj_t * lv_image_3 = lv_image_create(lv_obj_1);
     LV_IMAGE_DECLARE(img_ethernet_connect);
@@ -105,7 +88,7 @@ lv_obj_t * header_create(lv_obj_t * parent)
     lv_obj_set_width(lv_image_3, 48);
     lv_obj_set_height(lv_image_3, 48);
     lv_obj_set_style_margin_hor(lv_image_3, 6, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_bind_flag_if_eq(lv_image_3, &subject_ethernet_on, LV_OBJ_FLAG_HIDDEN, 1);
+    lv_obj_bind_flag_if_eq(lv_image_3, &subject_ethernet_on, LV_OBJ_FLAG_HIDDEN, 0);
 
     lv_obj_t * lv_image_4 = lv_image_create(lv_obj_1);
     LV_IMAGE_DECLARE(img_bluetooth_disconnect);
@@ -139,6 +122,8 @@ lv_obj_t * header_create(lv_obj_t * parent)
     lv_obj_set_style_margin_hor(lv_image_7, 6, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_bind_flag_if_eq(lv_image_7, &subject_wifi_on, LV_OBJ_FLAG_HIDDEN, 1);
 
+    update_system_status(NULL);
+    lv_timer_create(update_system_status, 1000, NULL);
 
     LV_TRACE_OBJ_CREATE("finished");
 

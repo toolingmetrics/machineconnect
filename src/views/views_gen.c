@@ -93,8 +93,7 @@ lv_font_t * text_8xl_bold;
 /* Images */
 
 /*Subjects*/
-lv_subject_t subject_hours;
-lv_subject_t subject_mins;
+lv_subject_t subject_system_time;
 lv_subject_t subject_bluetooth_on;
 lv_subject_t subject_wifi_on;
 lv_subject_t subject_ethernet_on;
@@ -115,8 +114,14 @@ void views_init_gen(const char * asset_path)
     /* Global Styles */
 
     /* Subjects */
-    lv_subject_init_int(&subject_hours, 10);
-    lv_subject_init_int(&subject_mins, 10);
+    static char subject_system_time_buf[UI_SUBJECT_STRING_LENGTH];
+    static char subject_system_time_prev_buf[UI_SUBJECT_STRING_LENGTH];
+    lv_subject_init_string(&subject_system_time,
+                            subject_system_time_buf,
+                            subject_system_time_prev_buf,
+                            UI_SUBJECT_STRING_LENGTH,
+                            ""
+                          );
     lv_subject_init_int(&subject_bluetooth_on, 0);
     lv_subject_init_int(&subject_wifi_on, 0);
     lv_subject_init_int(&subject_ethernet_on, 0);
@@ -273,8 +278,7 @@ void views_init_gen(const char * asset_path)
         lv_xml_register_font(NULL, "text_8xl_semibold", text_8xl_semibold);
         lv_xml_register_font(NULL, "text_8xl_bold", text_8xl_bold);
 
-        lv_xml_register_subject(NULL, "hours", &subject_hours);
-        lv_xml_register_subject(NULL, "mins", &subject_mins);
+        lv_xml_register_subject(NULL, "system_time", &subject_system_time);
         lv_xml_register_subject(NULL, "bluetooth_on", &subject_bluetooth_on);
         lv_xml_register_subject(NULL, "wifi_on", &subject_wifi_on);
         lv_xml_register_subject(NULL, "ethernet_on", &subject_ethernet_on);

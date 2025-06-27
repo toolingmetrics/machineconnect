@@ -105,8 +105,7 @@
     </fonts>
 
     <subjects>
-        <int name="hours" value="17"/>
-        <int name="mins" value="45"/>
+        <string name="system_time" value=""/>
         <int name="bluetooth_on" value="0"/>
         <int name="wifi_on" value="0"/>
         <int name="ethernet_on" value="0"/>
