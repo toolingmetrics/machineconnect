@@ -23,7 +23,6 @@ extern "C" {
 #include "components/buttons/btn_action_gen.h"
 #include "components/checkbox/checkbox_gen.h"
 #include "components/header_gen.h"
-#include "components/images/icon_gen.h"
 #include "components/row_gen.h"
 #include "screens/main_screen_gen.h"
 
@@ -95,19 +94,6 @@ extern lv_font_t * text_8xl_semibold;
 extern lv_font_t * text_8xl_bold;
 
 /* Images */
-extern const void * img_wifi_connect;
-extern const void * img_wifi_disconnect;
-extern const void * img_bluetooth_connect;
-extern const void * img_bluetooth_disconnect;
-extern const void * img_ethernet_connect;
-extern const void * img_ethernet_disconnect;
-extern const void * img_nfc;
-extern const void * img_favicon;
-extern const void * img_tool_load;
-extern const void * img_tool_unload;
-extern const void * img_tool_exchange;
-extern const void * img_tool_data;
-extern const void * img_setup_assistant;
 
 /* Subjects */
 extern lv_subject_t subject_hours;

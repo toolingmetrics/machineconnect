@@ -91,19 +91,6 @@ lv_font_t * text_8xl_semibold;
 lv_font_t * text_8xl_bold;
 
 /* Images */
-const void * img_wifi_connect;
-const void * img_wifi_disconnect;
-const void * img_bluetooth_connect;
-const void * img_bluetooth_disconnect;
-const void * img_ethernet_connect;
-const void * img_ethernet_disconnect;
-const void * img_nfc;
-const void * img_favicon;
-const void * img_tool_load;
-const void * img_tool_unload;
-const void * img_tool_exchange;
-const void * img_tool_data;
-const void * img_setup_assistant;
 
 /*Subjects*/
 lv_subject_t subject_hours;
@@ -234,32 +221,6 @@ void views_init_gen(const char * asset_path)
     text_8xl_bold = lv_tiny_ttf_create_data(Barlow_Bold_ttf_data, Barlow_Bold_ttf_data_size, 96);
 
     /* Images */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi_connect.png");
-    img_wifi_connect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi_disconnect.png");
-    img_wifi_disconnect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bluetooth_connect.png");
-    img_bluetooth_connect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bluetooth_disconnect.png");
-    img_bluetooth_disconnect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/ethernet_connect.png");
-    img_ethernet_connect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/ethernet_disconnect.png");
-    img_ethernet_disconnect = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/nfc.png");
-    img_nfc = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/favicon.png");
-    img_favicon = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_load.png");
-    img_tool_load = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_unload.png");
-    img_tool_unload = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_exchange.png");
-    img_tool_exchange = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/tool_data.png");
-    img_tool_data = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/setup_assistant.png");
-    img_setup_assistant = lv_strdup(buf);
 
     #if LV_USE_XML
 
@@ -311,20 +272,6 @@ void views_init_gen(const char * asset_path)
         lv_xml_register_font(NULL, "text_8xl_medium", text_8xl_medium);
         lv_xml_register_font(NULL, "text_8xl_semibold", text_8xl_semibold);
         lv_xml_register_font(NULL, "text_8xl_bold", text_8xl_bold);
-
-        lv_xml_register_image(NULL, "img_wifi_connect", img_wifi_connect);
-        lv_xml_register_image(NULL, "img_wifi_disconnect", img_wifi_disconnect);
-        lv_xml_register_image(NULL, "img_bluetooth_connect", img_bluetooth_connect);
-        lv_xml_register_image(NULL, "img_bluetooth_disconnect", img_bluetooth_disconnect);
-        lv_xml_register_image(NULL, "img_ethernet_connect", img_ethernet_connect);
-        lv_xml_register_image(NULL, "img_ethernet_disconnect", img_ethernet_disconnect);
-        lv_xml_register_image(NULL, "img_nfc", img_nfc);
-        lv_xml_register_image(NULL, "img_favicon", img_favicon);
-        lv_xml_register_image(NULL, "img_tool_load", img_tool_load);
-        lv_xml_register_image(NULL, "img_tool_unload", img_tool_unload);
-        lv_xml_register_image(NULL, "img_tool_exchange", img_tool_exchange);
-        lv_xml_register_image(NULL, "img_tool_data", img_tool_data);
-        lv_xml_register_image(NULL, "img_setup_assistant", img_setup_assistant);
 
         lv_xml_register_subject(NULL, "hours", &subject_hours);
         lv_xml_register_subject(NULL, "mins", &subject_mins);
