@@ -18,9 +18,9 @@
     
     <view styles="main" scrollable="false">
         <row flex_grow="1" width="80" style_flex_main_place="start" style_text_color="0x4B5563" style_pad_column="0" >
-            <lv_label bind_text="hours" style_text_font="text_4xl_medium"></lv_label>
-            <lv_label text=":" style_text_font="text_4xl_medium"></lv_label>
-            <lv_label bind_text="mins" style_text_font="text_4xl_medium"></lv_label>
+            <lv_label bind_text="hours" style_text_font="text_4xl_normal"></lv_label>
+            <lv_label text=":" style_text_font="text_4xl_normal"></lv_label>
+            <lv_label bind_text="mins" style_text_font="text_4xl_normal"></lv_label>
         </row>
         <lv_image src="img_nfc" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="nfc_on hidden 1"></lv_image>
         <lv_image src="img_ethernet_disconnect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="ethernet_on hidden 0"></lv_image>
