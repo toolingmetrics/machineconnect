@@ -46,7 +46,7 @@ lv_obj_t * header_create(lv_obj_t * parent)
         lv_style_set_width(&style_main, lv_pct(100));
         lv_style_set_height(&style_main, LV_SIZE_CONTENT);
         lv_style_set_pad_hor(&style_main, 10);
-        lv_style_set_pad_ver(&style_main, 4);
+        lv_style_set_pad_ver(&style_main, 6);
         lv_style_set_layout(&style_main, LV_LAYOUT_FLEX);
         lv_style_set_flex_cross_place(&style_main, LV_FLEX_ALIGN_CENTER);
         lv_style_set_flex_track_place(&style_main, LV_FLEX_ALIGN_CENTER);

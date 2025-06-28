@@ -8,7 +8,7 @@
     <styles>
         <style name="main"
             radius="0" width="100%" height="content"
-            pad_hor="10" pad_ver="4"
+            pad_hor="10" pad_ver="6"
             layout="flex"
             flex_cross_place="center"
             flex_track_place="center"

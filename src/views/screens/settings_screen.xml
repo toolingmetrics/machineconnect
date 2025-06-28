@@ -7,8 +7,8 @@
     </styles>
     <view width="100%" height="100%" style_bg_color="0xe5e7eb" style_pad_all="0">
         <header />
-        <lv_obj flex_flow="row_wrap" align="top_mid" width="100%" height="content" y="51" style_bg_opa="0" style_border_width="0" style_pad_hor="8" style_pad_column="8">
-            <lv_button name="back_main_btn" style_text_font="text_5xl_semibold" style_pad_ver="8" style_pad_hor="4" width="content" style_bg_opa="0" style_text_color="0x111827" style_border_width="0" style_shadow_opa="0" >
+        <lv_obj flex_flow="row_wrap" align="top_mid" width="100%" height="content" y="56" style_bg_opa="0" style_border_width="0" style_pad_all="0" style_pad_row="0">
+            <lv_button name="back_main_btn" style_text_font="text_5xl_semibold" style_pad_ver="12" style_pad_hor="10" style_pad_column="10" width="content" style_bg_opa="0" style_text_color="0x111827" style_border_width="0" style_shadow_opa="0" >
                 <lv_image src="img_back_icon" align="left_mid" width="60" height="60" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
                 <lv_label text="Settings" align="left_mid" style_pad_left="60" ></lv_label>
                 <lv_event-call_function callback="back_main_screen" trigger="clicked" />

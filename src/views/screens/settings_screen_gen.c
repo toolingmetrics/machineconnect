@@ -54,7 +54,7 @@ lv_obj_t * settings_screen_create(void)
     lv_obj_set_align(lv_obj_2, LV_ALIGN_TOP_MID);
     lv_obj_set_width(lv_obj_2, lv_pct(100));
     lv_obj_set_height(lv_obj_2, LV_SIZE_CONTENT);
-    lv_obj_set_y(lv_obj_2, 48);
+    lv_obj_set_y(lv_obj_2, 56);
     lv_obj_set_style_bg_opa(lv_obj_2, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(lv_obj_2, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_pad_hor(lv_obj_2, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
