@@ -2,28 +2,51 @@
     <previews>
         <preview width="720" height="200" style_bg_color="0xe5e7eb" />
     </previews>
+    <consts>
+        <int name="size" value="40" />
+    </consts>
     <styles>
         <style name="main"
-        radius="0" width="100%" height="64"
-        pad_hor="16" pad_ver="8"
-        layout="flex"
-        flex_cross_place="center"
-        flex_track_place="center"
-        flex_flow="row"
-        bg_opa="0"
-        border_width="0"
-        text_color="0x4B5563"
+            radius="0" width="100%" height="content"
+            pad_hor="10" pad_ver="4"
+            layout="flex"
+            flex_cross_place="center"
+            flex_track_place="center"
+            flex_flow="row"
+            bg_opa="0"
+            border_width="0"
+            text_color="0x4B5563"
         />
+        <style name="icon_on" image_recolor="0x4B5563" image_recolor_opa="255"/>
+        <style name="icon_off" image_opa="128"/>
     </styles>
 
     <view styles="main" scrollable="false">
         <lv_label flex_grow="1" bind_text="system_time" style_text_font="text_4xl_normal"></lv_label>
-        <lv_image src="img_nfc" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="nfc_on hidden 1"></lv_image>
-        <lv_image src="img_ethernet_disconnect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="ethernet_on hidden 0"></lv_image>
-        <lv_image src="img_ethernet_connect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="ethernet_on hidden 1"></lv_image>
-        <lv_image src="img_bluetooth_disconnect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="bluetooth_on hidden 0"></lv_image>
-        <lv_image src="img_bluetooth_connect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="bluetooth_on hidden 1"></lv_image>
-        <lv_image src="img_wifi_disconnect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="wifi_on hidden 0"></lv_image>
-        <lv_image src="img_wifi_connect" width="48" height="48" style_margin_hor="6" bind_flag_if_eq="wifi_on hidden 1"></lv_image>
+        <lv_image src="img_nfc" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_eq="nfc_on hidden -1"
+            bind_state_if_eq="nfc_on disabled 0">
+        </lv_image>
+        <lv_image src="img_ethernet_disconnect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_gt="ethernet_on hidden -1">
+        </lv_image>
+        <lv_image src="img_ethernet_connect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_eq="ethernet_on hidden -1"
+            bind_state_if_eq="ethernet_on disabled 0">
+        </lv_image>
+        <lv_image src="img_bluetooth_disconnect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_gt="bluetooth_on hidden -1">
+        </lv_image>
+        <lv_image src="img_bluetooth_connect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_eq="bluetooth_on hidden -1"
+            bind_state_if_eq="bluetooth_on disabled 0">
+        </lv_image>
+        <lv_image src="img_wifi_disconnect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_gt="wifi_on hidden -1">
+        </lv_image>
+        <lv_image src="img_wifi_connect" width="#size" height="#size" inner_align="stretch" style_margin_hor="6" styles="icon_on icon_off:disabled"
+            bind_flag_if_eq="wifi_on hidden -1"
+            bind_state_if_eq="wifi_on disabled 0">
+        </lv_image>
     </view>
 </component>

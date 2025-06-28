@@ -107,9 +107,9 @@
 
     <subjects>
         <string name="system_time" value="10:10"/>
-        <int name="bluetooth_on" value="0"/>
         <int name="wifi_on" value="0"/>
+        <int name="bluetooth_on" value="0"/>
         <int name="ethernet_on" value="0"/>
-        <int name="nfc_on" value="0"/>
+        <int name="nfc_on" value="-1"/>
     </subjects>
 </globals>

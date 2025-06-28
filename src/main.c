@@ -35,13 +35,17 @@ static void configure_simulator(int argc, char **argv);
 static void print_lvgl_version(void);
 static void print_usage(void);
 
+/**********************
+ * GLOBAL VARIABLES
+ **********************/
+lv_obj_t *main_screen;
+
 /* contains the name of the selected backend if user
  * has specified one on the command line */
 static char *selected_backend;
 
 /* Global simulator settings, defined in lv_linux_backend.c */
 extern simulator_settings_t settings;
-
 
 /**
  * @brief Print LVGL version
@@ -151,8 +155,8 @@ int main(int argc, char **argv)
 
     // Initialize views UI
     ui_init("src/views/");
-    lv_obj_t *screen = main_screen_create();
-    lv_scr_load(screen);
+    main_screen = main_screen_create();
+    lv_scr_load(main_screen);
 
     /* Enter the run loop of the selected backend */
     driver_backends_run_loop();

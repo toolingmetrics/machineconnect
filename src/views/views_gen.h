@@ -25,6 +25,7 @@ extern "C" {
 #include "components/header_gen.h"
 #include "components/row_gen.h"
 #include "screens/main_screen_gen.h"
+#include "screens/settings_screen_gen.h"
 
 /*********************
  *      DEFINES

@@ -72,8 +72,12 @@ void setup_assistant(lv_event_t * e)
 
 void system_settings(lv_event_t * e)
 {
-   LV_UNUSED(e);
-   LV_LOG("system_settings was called\n");
+   lv_scr_load_anim(settings_screen_create(), LV_SCR_LOAD_ANIM_FADE_ON, 300, 0, false);
+}
+
+void back_main_screen(lv_event_t * e)
+{
+    lv_scr_load_anim(main_screen, LV_SCR_LOAD_ANIM_FADE_OUT, 300, 0, true);
 }
 
 void update_system_status(lv_timer_t *timer)
@@ -92,13 +96,13 @@ void update_system_status(lv_timer_t *timer)
    lv_subject_set_int(&subject_wifi_on, check_wifi_status());
    lv_subject_set_int(&subject_bluetooth_on, check_bluetooth_status());
    lv_subject_set_int(&subject_ethernet_on, 0);
-   lv_subject_set_int(&subject_nfc_on, 0);
+   lv_subject_set_int(&subject_nfc_on, -1);
 }
 
 /**********************
  *   STATIC FUNCTIONS
  **********************/
-static bool has_ip_address(const char *iface)
+bool has_ip_address(const char *iface)
 {
     char cmd[128];
     snprintf(cmd, sizeof(cmd), "ip addr show %s | grep 'inet '", iface);
@@ -118,7 +122,7 @@ static bool has_ip_address(const char *iface)
     return found;
 }
 
-static int check_wifi_status(void)
+int check_wifi_status(void)
 {
     DIR *dir = opendir("/sys/class/net");
     if (!dir) return -1;
@@ -146,7 +150,7 @@ static int check_wifi_status(void)
     return 0;
 }
 
-static int check_bluetooth_status(void)
+int check_bluetooth_status(void)
 {
     FILE *fp = popen("hciconfig -a", "r");
     if (!fp) return -1;

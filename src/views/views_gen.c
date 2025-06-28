@@ -325,6 +325,11 @@ void __attribute__((weak)) system_settings(lv_event_t * e)
    LV_UNUSED(e);
    LV_LOG("system_settings was called\n");
 }
+void __attribute__((weak)) back_main_screen(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("back_main_screen was called\n");
+}
 #endif
 
 /**********************
