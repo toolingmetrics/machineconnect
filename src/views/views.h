@@ -18,7 +18,6 @@ extern "C" {
  *      DEFINES
  *********************/
 void update_system_status(lv_timer_t * timer);
-void back_main_screen(lv_event_t * e);
 
 static bool has_ip_address(const char *iface);
 static int check_wifi_status(void);

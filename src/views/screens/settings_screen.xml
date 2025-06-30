@@ -1,66 +1,14 @@
 <screen>
-    <consts>
-        <int name="slider_box_width" value="155"/>
-    </consts>
-
     <styles>
+        <style name="cell" border_side="full" text_font="text_2xl_normal" />
     </styles>
-    <view width="100%" height="100%" style_bg_color="0xe5e7eb" style_pad_all="0">
+    <view width="100%" height="100%" flex_flow="column" style_pad_row="0" style_bg_color="0xe5e7eb" style_pad_all="0">
         <header />
-        <lv_obj flex_flow="row_wrap" align="top_mid" width="100%" height="content" y="56" style_bg_opa="0" style_border_width="0" style_pad_all="0" style_pad_row="0">
-            <lv_button name="back_main_btn" style_text_font="text_5xl_semibold" style_pad_ver="12" style_pad_hor="10" style_pad_column="10" width="content" style_bg_opa="0" style_text_color="0x111827" style_border_width="0" style_shadow_opa="0" >
-                <lv_image src="img_back_icon" align="left_mid" width="60" height="60" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                <lv_label text="Settings" align="left_mid" style_pad_left="60" ></lv_label>
+        <lv_obj name="body" flex_flow="column" align="top_mid" width="100%" flex_grow="1" scrollable="0" scrolled="0" style_bg_opa="0" style_border_width="0" style_pad_all="0" style_pad_row="0">
+            <navbar icon="img_bluetooth_connect" title="Settings">
                 <lv_event-call_function callback="back_main_screen" trigger="clicked" />
-            </lv_button>
-            <lv_obj width="40%" height="content" style_max_height="1120" style_pad_row="8" scroll_chain_ver="1" flex_flow="row_wrap"  flex_in_new_track="true" style_border_width="0" style_bg_opa="0" style_pad_all="0" >
-                <lv_obj width="100%" height="content" style_pad_row="0" scroll_chain_ver="1" flex_flow="row_wrap" style_border_width="1" style_border_color="0xd1d5db" style_pad_all="0" >
-                    <lv_button name="wifi_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_wifi_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Wi-Fi" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="bluetooth_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_bluetooth_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Bluetooth" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="ethernet_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_ethernet_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Network" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="nfc_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="0" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_nfc" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="NFC" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                </lv_obj>
-
-                <lv_obj width="100%" height="content" style_pad_row="0" scroll_chain_ver="1" flex_flow="row_wrap" style_border_width="1" style_border_color="0xd1d5db" style_pad_all="0" >
-                    <lv_button name="general_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_wifi_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="General" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="datetime_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_bluetooth_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Date &amp; Time" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="api_token_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_bluetooth_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="API Token Key" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="software_update_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_ethernet_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Software Update" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="legal_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="1" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_bluetooth_connect" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="Legal &amp; Regulatory" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                    <lv_button name="about_setting_btn" style_text_font="text_2xl_normal" style_pad_ver="12" width="100%" style_bg_color="0xffffff" style_text_color="0x111827" style_border_width="0" style_border_color="0xd1d5db" style_border_side="bottom" style_shadow_opa="0" >
-                        <lv_image src="img_nfc" align="left_mid" width="36" height="36" style_image_recolor="0x111827" inner_align="stretch"></lv_image>
-                        <lv_label text="About" align="left_mid" style_pad_left="48" ></lv_label>
-                    </lv_button>
-                </lv_obj>
-            </lv_obj>
-            <lv_obj flex_grow="1" height="content" style_max_height="1120" style_border_width="0">
+            </navbar>
+            <lv_obj name="content" flex_flow="row" width="100%" flex_grow="1" scrollable="0" style_pad_all="8" style_pad_column="8" style_bg_opa="0" style_border_width="0" style_shadow_opa="0" >
             </lv_obj>
         </lv_obj>
     </view>

@@ -21,8 +21,10 @@ extern "C" {
 
 /*Include all the widget and components of this library*/
 #include "components/buttons/btn_action_gen.h"
+#include "components/buttons/btn_secondary_gen.h"
 #include "components/checkbox/checkbox_gen.h"
 #include "components/header_gen.h"
+#include "components/navbar/navbar_gen.h"
 #include "components/row_gen.h"
 #include "screens/main_screen_gen.h"
 #include "screens/settings_screen_gen.h"
@@ -98,8 +100,8 @@ extern lv_font_t * text_8xl_bold;
 
 /* Subjects */
 extern lv_subject_t subject_system_time;
-extern lv_subject_t subject_bluetooth_on;
 extern lv_subject_t subject_wifi_on;
+extern lv_subject_t subject_bluetooth_on;
 extern lv_subject_t subject_ethernet_on;
 extern lv_subject_t subject_nfc_on;
 
@@ -114,6 +116,7 @@ void tool_exchange(lv_event_t * e);
 void tool_data(lv_event_t * e);
 void setup_assistant(lv_event_t * e);
 void system_settings(lv_event_t * e);
+void back_main_screen(lv_event_t * e);
 
 /**
  * Initialize the component library

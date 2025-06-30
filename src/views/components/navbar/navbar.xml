@@ -1,0 +1,19 @@
+<component>
+    <previews>
+        <preview width="720" height="200" style_bg_color="0xdddddd" style_pad_all="0">
+        </preview>
+    </previews>
+    <api>
+        <prop name="icon" type="image" default="img_back_icon"></prop>
+        <prop name="title" type="string" default="About"></prop>
+    </api>
+
+    <styles>
+        <style name="main" text_color="0x374151" bg_opa="0" radius="0" width="content" height="content" border_width="0" shadow_width="0" />
+        <style name="pr" text_color="0x000000" image_recolor="0x000000" radius="0" />
+    </styles>
+    <view extends="lv_button" width="content" height="content" styles="main pr:pressed" flex_flow="row" style_pad_column="8" style_pad_hor="10" style_pad_ver="12">
+        <lv_image src="$icon" width="58" height="58" style_image_recolor="0xebebeb" inner_align="stretch" />
+        <lv_label text="$title" style_text_font="text_5xl_semibold"></lv_label>
+    </view>
+</component>

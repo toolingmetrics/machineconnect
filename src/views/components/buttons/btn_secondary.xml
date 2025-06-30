@@ -1,0 +1,29 @@
+<component>
+    <previews>
+        <preview width="400" height="200" style_pad_all="20" style_bg_color="0xd2d2d2" />
+    </previews>
+    <api>
+        <prop name="title" type="string" default="Settings"></prop>
+        <prop name="icon" type="image" default="img_wifi_connect"></prop>
+    </api>
+    <styles>
+        <style name="main" layout="flex"
+            flex_cross_place="center"
+            flex_track_place="center"
+            flex_flow="row"
+            bg_color="0xfafafa"
+            text_color="0x374151"
+            image_recolor="0x374151"
+            border_width="1"
+            border_color="0xD4D4D8"
+            border_side="bottom"
+            shadow_width="0" />
+        <style name="pr" bg_color="0x005AA3" text_color="0xffffff" image_recolor="0xffffff" />
+        <style name="ck" bg_color="0x007AD8" text_color="0xffffff" image_recolor="0xffffff" />
+    </styles>
+
+    <view styles="main pr:pressed ck:checked" width="100%" height="content" style_radius="0" >
+        <lv_image src="icon" width="32" height="32" style_image_recolor="0x374151" inner_align="stretch"></lv_image>
+        <lv_label text="$title" style_text_font="text_2xl_normal"></lv_label>
+    </view>
+</component>
