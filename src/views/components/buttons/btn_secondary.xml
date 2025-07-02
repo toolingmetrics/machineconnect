@@ -5,25 +5,31 @@
     <api>
         <prop name="title" type="string" default="Settings"></prop>
         <prop name="icon" type="image" default="img_wifi_connect"></prop>
+        <prop name="color" type="color" default="0x3b82f6"></prop>
     </api>
     <styles>
         <style name="main" layout="flex"
             flex_cross_place="center"
             flex_track_place="center"
             flex_flow="row"
+            pad_all="16"
             bg_color="0xfafafa"
-            text_color="0x374151"
-            image_recolor="0x374151"
+            text_color="0x4B5563"
+            image_recolor="0x4B5563"
             border_width="1"
             border_color="0xD4D4D8"
             border_side="bottom"
             shadow_width="0" />
-        <style name="pr" bg_color="0x005AA3" text_color="0xffffff" image_recolor="0xffffff" />
-        <style name="ck" bg_color="0x007AD8" text_color="0xffffff" image_recolor="0xffffff" />
+        <style name="pr" bg_color="0x005AA3" text_color="0xfafafa" image_recolor="0xffffff" />
+        <style name="ck" bg_color="0x007AD8" text_color="0xfafafa" image_recolor="0xffffff" />
+        <style name="icon_main" width="32" height="32" image_recolor="0xfafafa" image_recolor_opa="255"/>
+        <style name="icon_pressed" image_recolor="0xfafafa" image_opa="255"/>
     </styles>
 
     <view styles="main pr:pressed ck:checked" width="100%" height="content" style_radius="0" >
-        <lv_image src="icon" width="32" height="32" style_image_recolor="0x374151" inner_align="stretch"></lv_image>
+        <lv_obj style_bg_color="$color" style_pad_all="4" width="content" height="content" style_border_width="0" style_radius="6">
+            <lv_image styles="icon_main icon_pressed:pressed icon_pressed:checked" src="$icon" inner_align="stretch" ></lv_image>
+        </lv_obj>
         <lv_label text="$title" style_text_font="text_2xl_normal"></lv_label>
     </view>
 </component>

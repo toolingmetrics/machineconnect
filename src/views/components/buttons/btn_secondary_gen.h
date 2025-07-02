@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * btn_secondary_create(lv_obj_t * parent, const char * title, void * icon);
+lv_obj_t * btn_secondary_create(lv_obj_t * parent, const char * title, const lv_image_dsc_t * icon, lv_color_t color);
 
 /**********************
  *      MACROS
