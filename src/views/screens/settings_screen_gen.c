@@ -275,7 +275,7 @@ lv_obj_t * settings_screen_create(void)
     lv_menu_set_load_page_event(menu, cont, device_info_page);
 
     lv_menu_set_sidebar_page(menu, menu_page);
-    lv_menu_set_page(menu, wifi_page);
+    lv_obj_send_event(lv_obj_get_child(lv_obj_get_child(lv_menu_get_cur_sidebar_page(menu), 0), 0), LV_EVENT_CLICKED, NULL);
 
     LV_TRACE_OBJ_CREATE("finished");
 
