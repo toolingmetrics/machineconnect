@@ -18,7 +18,7 @@
             text_color="0x4B5563"
         />
         <style name="icon_on" image_recolor="0x4B5563" image_recolor_opa="255"/>
-        <style name="icon_off" image_opa="128"/>
+        <style name="icon_off" image_opa="64"/>
     </styles>
 
     <view styles="main" scrollable="false">
