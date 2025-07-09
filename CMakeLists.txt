@@ -159,10 +159,12 @@ endif()
 file(GLOB_RECURSE LV_LINUX_SRC
     src/lib/*.c
     src/views/*.c
+    src/controllers/*.c
 )
 set(LV_LINUX_INC
     src/lib
     src/views
+    src/controllers
 )
 file(GLOB LV_FONT_SRC
     src/views/fonts/Barlow_Regular_ttf_data.c
@@ -181,6 +183,7 @@ set_target_properties(lvgl_linux PROPERTIES COMPILE_DEFINITIONS "${LVGL_COMPILER
 target_include_directories(lvgl_linux PUBLIC
     ${LV_LINUX_INC} ${CMAKE_CURRENT_SOURCE_DIR}
     ${PROJECT_SOURCE_DIR}/src/views
+    ${PROJECT_SOURCE_DIR}/src/controllers
     ${PROJECT_SOURCE_DIR}/src/lib ${LVGL_CONF_INC_DIR})
 
 # Link LVGL with external dependencies - Modern CMake/CMP0079 allows this
@@ -190,7 +193,7 @@ add_executable(machineconnect src/main.c ${LV_LINUX_SRC} ${LV_LINUX_BACKEND_SRC}
 target_link_libraries(machineconnect lvgl_linux lvgl)
 
 # Install the lvgl_linux library and its headers
-install(DIRECTORY src/lib/ src/views/
+install(DIRECTORY src/lib/ src/views/ src/controllers/
     DESTINATION include/lvgl
     FILES_MATCHING
     PATTERN "backends*" EXCLUDE

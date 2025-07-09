@@ -20,11 +20,11 @@
 /***********************
  *  STATIC VARIABLES
  **********************/
+static lv_obj_t * wifi_page;
 
 /***********************
  *  STATIC PROTOTYPES
  **********************/
-lv_obj_t * tm_create_menu_item(lv_obj_t *parent, const char *label_text, const lv_image_dsc_t *img_icon);
 
 /**********************
  *   GLOBAL FUNCTIONS
@@ -88,7 +88,7 @@ lv_obj_t * settings_screen_create(void)
     lv_obj_set_style_shadow_opa(content, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * menu = lv_menu_create(content);
-    lv_obj_set_size(menu, lv_display_get_horizontal_resolution(NULL), lv_display_get_vertical_resolution(NULL) );
+    lv_obj_set_size(menu, lv_display_get_horizontal_resolution(NULL), lv_display_get_vertical_resolution(NULL));
     lv_obj_set_style_bg_opa(menu, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * section;
@@ -96,21 +96,37 @@ lv_obj_t * settings_screen_create(void)
     lv_obj_t * label;
 
     // Create content pages
-    lv_obj_t * wifi_page = lv_menu_page_create(menu, NULL);
+    wifi_page = lv_menu_page_create(menu, NULL);
     lv_obj_set_style_width(wifi_page, lv_pct(100), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_margin_top(wifi_page, 16, 0);
     lv_obj_set_style_margin_left(wifi_page, 12, 0);
     lv_obj_set_style_margin_right(wifi_page, 32, 0);
     lv_obj_set_style_margin_bottom(wifi_page, 32, 0);
+
     cont = lv_menu_cont_create(wifi_page);
     lv_obj_set_style_radius(cont, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(cont, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(cont, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(cont, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_border_color(cont, lv_color_hex(0xd1d5db), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_hor(cont, 24, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_ver(cont, 18, LV_PART_MAIN | LV_STATE_DEFAULT);
     label = lv_label_create(cont);
     lv_obj_set_style_text_font(label, text_2xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_label_set_text(label, "Wi-Fi Settings");
+    lv_obj_set_style_text_color(label, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_label_set_text(label, "Wi-Fi");
+    lv_obj_set_flex_grow(label, 1);
+    lv_obj_t * wifi_sw = lv_switch_create(cont);
+    lv_obj_set_style_height(wifi_sw, 32, 0);
+    lv_obj_set_style_bg_color(wifi_sw, lv_color_hex(0x007AD8), LV_PART_INDICATOR | LV_STATE_CHECKED);
+    lv_obj_add_event_cb(wifi_sw, toggle_wifi, LV_EVENT_ALL, NULL);
+
+    bool wifi_enabled = is_wifi_enabled();
+    lv_obj_add_state(wifi_sw, wifi_enabled);
+
+    if(wifi_enabled) {
+        networks_init(wifi_page);
+    }
 
     lv_obj_t * bluetooth_page = lv_menu_page_create(menu, NULL);
     lv_obj_set_style_width(bluetooth_page, lv_pct(100), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -275,13 +291,152 @@ lv_obj_t * settings_screen_create(void)
     lv_menu_set_load_page_event(menu, cont, device_info_page);
 
     lv_menu_set_sidebar_page(menu, menu_page);
-    lv_obj_send_event(lv_obj_get_child(lv_obj_get_child(lv_menu_get_cur_sidebar_page(menu), 0), 0), LV_EVENT_CLICKED, NULL);
+    lv_obj_send_event(lv_obj_get_child(lv_obj_get_child(lv_menu_get_cur_sidebar_page(menu), 0), 0), LV_EVENT_CLICKED,
+                      NULL);
 
     LV_TRACE_OBJ_CREATE("finished");
 
     return lv_obj_1;
 }
 
+void connect_to_network(lv_event_t * e)
+{
+    lv_obj_t * ssid_label = get_child_by_name(lv_event_get_target_obj(e), "ssid_label");
+    if(ssid_label) {
+        LV_LOG("connect to network: %s\n", lv_label_get_text(ssid_label));
+    } else {
+        LV_LOG_WARN("no network ssid found");
+    }
+}
+
 /**********************
  *   STATIC FUNCTIONS
  **********************/
+void toggle_wifi(lv_event_t * e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    lv_obj_t * obj       = lv_event_get_target_obj(e);
+    if(code == LV_EVENT_VALUE_CHANGED) {
+        bool is_enabled = lv_obj_has_state(obj, LV_STATE_CHECKED);
+
+        FILE * fp;
+        char command[64];
+        snprintf(command, sizeof(command), "nmcli radio wifi %s", is_enabled ? "on" : "off");
+        fp = popen(command, "r");
+
+        if(fp == NULL) {
+            return;
+        }
+
+        if(is_enabled) {
+            networks_init(wifi_page);
+        } else {
+            lv_obj_t * found = get_child_by_name(wifi_page, "wifi_networks_list");
+            if(found) {
+                lv_obj_delete(found);
+            } else {
+                LV_LOG_WARN("no obj founded");
+            }
+        }
+    }
+}
+
+lv_obj_t * networks_init(lv_obj_t * parent)
+{
+    int ssid_count = 0;
+    char ** ssids  = get_wifi_ssids(&ssid_count);
+    lv_obj_t * label;
+    lv_obj_t * icon;
+    lv_obj_t * network_row;
+
+    LV_IMAGE_DECLARE(img_wifi_connect);
+    LV_IMAGE_DECLARE(img_lock_fill);
+
+    lv_obj_t * networks_cont = lv_menu_cont_create(parent);
+    lv_obj_set_name(networks_cont, "wifi_networks_list");
+    lv_obj_set_width(networks_cont, lv_pct(100));
+    lv_obj_set_height(networks_cont, LV_SIZE_CONTENT);
+    lv_obj_set_flex_flow(networks_cont, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_style_flex_cross_place(networks_cont, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_flex_track_place(networks_cont, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_all(networks_cont, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_row(networks_cont, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(networks_cont, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    label = lv_label_create(networks_cont);
+    lv_obj_set_style_width(label, lv_pct(100), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_hor(label, 4, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(label, 24, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(label, 12, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(label, text_xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(label, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_label_set_text(label, "Visible Networks");
+
+    lv_obj_t * cont = lv_obj_create(networks_cont);
+    lv_obj_set_style_radius(cont, 8, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(cont, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(cont, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(cont, 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(cont, lv_color_hex(0xd1d5db), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_width(cont, lv_pct(100));
+    lv_obj_set_height(cont, LV_SIZE_CONTENT);
+    lv_obj_set_flex_flow(cont, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_style_flex_cross_place(cont, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_flex_track_place(cont, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_all(cont, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_row(cont, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    if(ssids == NULL || ssid_count <= 0) {
+        label = lv_label_create(cont);
+        lv_obj_set_style_text_font(label, text_2xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(label, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_hor(label, 20, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_ver(label, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_label_set_text(label, "No network founded");
+        return networks_cont;
+    }
+
+    for(int i = 0; i < ssid_count; i++) {
+        network_row = lv_obj_create(cont);
+        lv_obj_add_flag(network_row, LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_add_event_cb(network_row, connect_to_network, LV_EVENT_CLICKED, NULL);
+        lv_obj_set_width(network_row, lv_pct(100));
+        lv_obj_set_height(network_row, LV_SIZE_CONTENT);
+        lv_obj_set_flex_flow(network_row, LV_FLEX_FLOW_ROW);
+        lv_obj_set_style_flex_cross_place(network_row, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_flex_track_place(network_row, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_all(network_row, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_row(network_row, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_hor(network_row, 20, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_pad_ver(network_row, 16, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_width(network_row, i + 1 == ssid_count ? 0 : 1, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_color(network_row, lv_color_hex(0xD4D4D8), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_border_side(network_row, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN | LV_STATE_DEFAULT);
+        icon = lv_image_create(network_row);
+        lv_obj_set_width(icon, 32);
+        lv_obj_set_height(icon, 32);
+        lv_obj_set_style_recolor(icon, lv_color_hex(0xfafafa), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_recolor_opa(icon, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_image_set_src(icon, &img_wifi_connect);
+        lv_image_set_inner_align(icon, LV_IMAGE_ALIGN_STRETCH);
+        icon = lv_image_create(network_row);
+        lv_obj_set_width(icon, 14);
+        lv_obj_set_height(icon, 14);
+        lv_obj_set_style_margin_top(icon, 18, 0);
+        lv_obj_set_style_margin_left(icon, -18, 0);
+        lv_obj_set_style_recolor(icon, lv_color_hex(0xfafafa), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_recolor_opa(icon, 128, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_image_set_src(icon, &img_lock_fill);
+        lv_image_set_inner_align(icon, LV_IMAGE_ALIGN_STRETCH);
+        label = lv_label_create(network_row);
+        lv_obj_set_style_text_font(label, text_2xl_normal, LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_obj_set_style_text_color(label, lv_color_hex(0x4B5563), LV_PART_MAIN | LV_STATE_DEFAULT);
+        lv_label_set_text_fmt(label, "%s", ssids[i]);
+        lv_obj_set_name(label, "ssid_label");
+    }
+
+    free_ssid_list(ssids, ssid_count);
+
+    return networks_cont;
+}

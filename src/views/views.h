@@ -18,10 +18,10 @@ extern "C" {
  *      DEFINES
  *********************/
 void update_system_status(lv_timer_t * timer);
-
-static bool has_ip_address(const char *iface);
-static int check_wifi_status(void);
-static int check_bluetooth_status(void);
+lv_obj_t * get_child_by_name(lv_obj_t * parent, const char * name);
+bool has_ip_address(const char *iface);
+int check_wifi_status(void);
+int check_bluetooth_status(void);
 
 /**********************
  *      TYPEDEFS

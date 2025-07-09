@@ -99,6 +99,23 @@ void update_system_status(lv_timer_t *timer)
    lv_subject_set_int(&subject_nfc_on, -1);
 }
 
+lv_obj_t * get_child_by_name(lv_obj_t * parent, const char * name)
+{
+    if(!parent || !name) return NULL;
+
+    uint32_t i       = 0;
+    lv_obj_t * child = NULL;
+    while((child = lv_obj_get_child(parent, i)) != NULL) {
+        const char * child_name = lv_obj_get_name(child);
+        if(child_name && strcmp(child_name, name) == 0) {
+            return child;
+        }
+        i++;
+    }
+
+    return NULL;
+}
+
 /**********************
  *   STATIC FUNCTIONS
  **********************/
@@ -131,7 +148,7 @@ int check_wifi_status(void)
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_name[0] == '.') continue;
 
-        char wireless_path[256];
+        char wireless_path[280];
         snprintf(wireless_path, sizeof(wireless_path), "/sys/class/net/%s/wireless", entry->d_name);
 
         // Check if wireless directory exists

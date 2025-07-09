@@ -13,6 +13,11 @@ extern "C" {
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+#include "src/controllers/settings/network_controller.h"
 
 /*********************
  *      DEFINES
@@ -25,8 +30,12 @@ extern "C" {
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
-
 lv_obj_t * settings_screen_create(void);
+lv_obj_t * networks_init(lv_obj_t * parent);
+void toggle_wifi(lv_event_t * e);
+
+/* Callback */
+void connect_to_network(lv_event_t * e);
 
 /**********************
  *      MACROS
